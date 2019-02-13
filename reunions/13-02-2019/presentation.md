@@ -58,6 +58,7 @@
 - Equipe front
 - Equipe backend
 - Equipe réseaux
+- ![center](graph.png)
 
 ---
 
