@@ -5,14 +5,12 @@
 
 ---
 
-# Age of empire
+![center](https://upload.wikimedia.org/wikipedia/commons/c/cf/Aoe_fuchs.png)
 
-- Version simplifié
+- RTS Version simplifié
 - Multi platforme
 - Multijoueur
-- Jouer avec des amis
-- Classement
-- Compétitif 1vs1, 2vs2 ...
+- Compétitif 1vs1
 
 ---
 
@@ -36,7 +34,7 @@
 - gRPC -> protobuf
 - Creation d'instance avec k8s
 
-![](https://grpc.io/img/landing-2.svg)
+![center](https://grpc.io/img/landing-2.svg)
 
 ---
 
