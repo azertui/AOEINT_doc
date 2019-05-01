@@ -10,35 +10,36 @@ Les CMI en option Imagerie ont été amenés à utiliser un moteur de jeu 3D, ic
 Cette matière a permis d'approcer l'utilisation de scripts et la manipulation de l'interface de Unity. Ces connaissance préalables ont permis d'aborder plus rapidement la conception du jeu, ainsi de connaître la solutions à certains problèmes auxquels ils auraient pu faire face auparavant.
 En choisissant d'utiliser Unity plutôt qu'un moteur de jeu inconnu des CMI Image du groupe, il a été posible d'avancer plus vite dans l'ensemble de la conception du jeu.
 
-# Choix du jeux
+# Choix du jeu
 
 Un premier brainstorming a été réalisé lors des réunions de début, afin de trouver le jeu le plus adapté aux demandes et contraintes du sujet.
 Les avis se sont majoritairement dirigés vers un Real Time Strategy (RTS) game, soit un jeu de stratégie en temps réel.
 Après reflexion, nous avons fini par choisir Age Of Empire, car cela motivait tous les membres de l'équipe, et qu'une version alégée nous parassait accessible.
 
-# Conception du Jeux
+# Conception du jeu
 
-Pour concevoir le jeux, nous nous sommes réuni plusieurs fois pour choisir les technologies et l'architecture du projet.
+Plusieurs réunions de groupes ont été organisées surtout au début du semestre, afin de se décider sur les technologies à utiliser et l'arcitecture du projet à venir.
+Nous avons réalisé des schémas pour prévoir au mieux une architecture robuste et cohérente avec le jeu Age Of Empire original.
 
-## Technologie
+## Technologies
 
-Un des premiers problème recontrer était l'hétérogénéité entre les compétence techniques.
-Nous avons du faire des compromis pour que tous le monde puisse progresser dans de bonne conditions
+Un des premiers problèmes recontrés a été l'hétérogénéité entre les compétence techniques des différents membres du groupe.
+Nous avons du faire des compromis pour que tous le monde puisse progresser dans de bonne conditions, et que les peronnes avançant plus rapidement puisse opérer sur un nombre plus important de tâches.
 
 ### Langage de programmation
 
-Pour l'instance de jeux, nous avions hésiter entre JAVA, python et GO.
-JAVA étant lourd et en voix d'instinction il restait python et GO.
-Go nous a parru plus adapter car il ressemble fortement au C avec les avantages:
-* d'etre compilable
-* d'integrer des outils de test
-* d'integrer une gestion des dépendances
-* d'integrer une documentation
-* s'integre très bien à une architecture micro-service
+Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
+JAVA étant lourd et en voie d'extinction, ilPyhton et GO était les deux choix restants.
+Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages:
+* d'être compilable
+* d'intégrer des outils de test
+* d'intégrer une gestion des dépendances
+* d'intégrer une documentation
+* de très bien s'intégrer à une architecture micro-service
 
 ## Architecture
 
-Après avoir fait le tour des capacités des membres, nous nous sommes tournés vers une achitecture micro services.
+En discutant entre membres de l'équipe, nous nous sommes tournés vers une achitecture de type "micro-services" : c'est celle qui nous a semblée la plus propie à l'application des connaissances respectives de chacun.
 
 ### Micro service
 
