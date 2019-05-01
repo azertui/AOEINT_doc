@@ -23,7 +23,7 @@ Nous avons réalisé des schémas pour prévoir au mieux une architecture robust
 
 ## Technologies
 
-Un des premiers problèmes recontrés a été l'hétérogénéité entre les compétence techniques des différents membres du groupe.
+Un des premiers problèmes rencontrés a été l'hétérogénéité entre les compétences techniques des différents membres du groupe.
 Nous avons du faire des compromis pour que tous le monde puisse progresser dans de bonne conditions, et que les peronnes avançant plus rapidement puisse opérer sur un nombre plus important de tâches.
 
 ### Langage de programmation
@@ -62,8 +62,9 @@ De plus, l'utilisation du projet "Apollo Server" permet de monter une API GraphQ
 
 #### Knex / bookshelf
 
-Nous avons choisi d'utiliser un ORM pour la base de donnée contenant les informations sur les partie et les joueurs.
-
+Nous avons choisi d'utiliser un Object-Relational Mapping (ORM) pour la base de données contenant les informations sur les partie et les joueurs.
+Ce type de programme se place en interface entre un programme applicatif et une base de données relationnelle pour simuler une base de données orientée objet.
+De manière imagée, un ORM peut être décrit comme une couce d'abstraction entre le "monde objet" et "monde relationnel".
 
 ### API de classement
 
