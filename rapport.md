@@ -45,6 +45,7 @@ L'avantage d'une architecture micro-service est:
 * Chaque service contient une quantité de code raisonable et facilement assimilable
 * On peut augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
 
+
 ### API authentification et d'information sur les lobbies
 
 Pour ce projet, nous avons décidé de choisir de faire une api GraphQL pour se connecter/enregister et obtenir la liste des serveurs disponibles.
@@ -75,46 +76,105 @@ Concernant le client, nous hésitions en GOdot et unity
 
 #### Unity
 
+Unity est un moteur de jeux propriétaire possédant un nombre enorme d'assets permetant de construire un jeux rapidement sans beaucoup de conaissances.
+
 #### Godot
+
+Godot est un moteur de jeux open source et très puissant, il est léger et facilement intégrable avec git.
+Malheuresement Adrien voulait absolument unity.
 
 # Organisation
 
+Pour créer le jeux dans les meilleures conditions, il a fallu diviser le projet en plusieurs modules
+
 ## Formations des équipes
+
+La formation des équipes est venu naturellement. En effet les CMI images forment l'équipe front car ils ne sont pas très à l'aise à la programmation dure.
 
 ### Front
 
+L'équipe front est chargé de déveloper le client.
+Elle est composée d'Adrien, Chloé et Marie.
+
 ### Noyaux
+
+L'équipe noyaux est chargé de développer le noyaux. E
 
 ### Réseaux
 
+L'équipe réseaux est chargé de faire le lien entre le client et l'instance de la partie.
+
 ## Répartition des taches
+
+La répartition des taches se fait grâce à gitlab, les issues sont créés et attribué ou choisi par les personnes disponibles.
+Ce système permet de d'attribuer des taches correspondantes aux personnes augmentant ainsi la productivité.
 
 ### Gitlab
 
+L'utilisation de gitlab est très agréable, contrairement à github, la version gratuite contient un large pannel de fonctionnabilités.
+
 #### Issues
+
+Les issues nous permettent de demander des features et de déclarer qu'on travail sur une feature.
 
 #### Pull request
 
+Lorsqu'une branche est stable, c'est à dire qu'elle passe les tests de l'intégration, une Pull request est créé.
+Elle est validée après un test effectué par un membre et après avoir passé tout les test de l'intégration continu.
+
 ## Discussions
+
+Les issues sont fort pratique, hélas pour des petites question technique il est utilise d'utiliser de la communication sous forme de chat.
 
 ### Discord
 
+Nous avons choisi discord comme logiciel de chat car il permet de faire des groupes d'utilisateurs et différents salons textuel et vocaux.
+
 ## CI / CD
+
+Pour pouvoir garantir un maximum de stabilité, à chaque publication de commit, des scripts de test sont lancé sur des runner gitlab.
 
 ### gitlab CI
 
+Gitlab permet grace au fichier .gitlab-ci.yaml de déclarer un pipeline qui peut tester, publier et deployer des solutions logiciels
+
 ### Webhook gitlab
+
+Lorsqu'il y a un évenement sur un des projet git du groupe gitlab AOEINT, un message apparait dans le salon CI du discord, cela permet de prendre connaissance d'un commit ou d'une issue.
 
 ### mirroir github / docker cloud
 
-
+L'instance gitlab de l'université de possède pas de registry docker.
+Dockercloud perme
+Dockercloud n'est pas compatible avec gitlab, pour pouvoir profiter de la ci il a falu faire un mirroir github.
 
 # Developement
 
+Le developement à était compliqué par le faite que tous le monde à un OS différent.
+
+## S'adapter aux configs
+
+Il a falu des heures de labeur pour installer go, unity et des dépendances sur chaques machines.
+
+
+## docker
+
+Pour palier à ce problème, l'utilisation de docker à permis de faciliter le dévelopement.
+Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro.
+
 ## git
+
+Pour developer, l'utilisation de git est obligatoire parce que c'est bien
 
 ### branches
 
+Pour le pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
+branches indépendantes
+
+#### b -> develop
+
+Dès qu'une feature est jugée terminé. Une pull request est ouverte pour merge les modifications.
+Cela permet d'intégrer les features au fur et à mesure et d'avancer par itérations
 
 # Deploiement
 
