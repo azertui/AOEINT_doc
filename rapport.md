@@ -1,18 +1,20 @@
 # Introduction
 
-Ce projet nous permet d'appliquer les compétences que nous avons acquéri durant notre licence.
-Il s'agit de créer un jeux multijoueur et en temps réel reprenant un jeux des années 1980-1990.
+Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
+Il s'agit de créer un jeu multijoueur en temps réel, reprenant un jeux des années 1980-1990.
 
 
 # Contexte
 
-Les CMI images ont deja utilisés utilisé unity pour faire un petit jeux durant le S5.
+Les CMI en option Imagerie ont été amenés à utiliser un moteur de jeu 3D, ici Unity, lors d'un projet au semestre 5. 
+Cette matière a permis d'approcer l'utilisation de scripts et la manipulation de l'interface de Unity. Ces connaissance préalables ont permis d'aborder plus rapidement la conception du jeu, ainsi de connaître la solutions à certains problèmes auxquels ils auraient pu faire face auparavant.
+En choisissant d'utiliser Unity plutôt qu'un moteur de jeu inconnu des CMI Image du groupe, il a été posible d'avancer plus vite dans l'ensemble de la conception du jeu.
 
 # Choix du jeux
 
-Nous avons fait un brainstorming pour trouver le jeux qui serait le plus adapter.
-Les idées tendaient vers un RTS.
-Après reflexions, nous avons fini par choisir age of empire car cela motivé tous les membres de l'équipe, et une version aléger nous parassait accessible.
+Un premier brainstorming a été réalisé lors des réunions de début, afin de trouver le jeu le plus adapté aux demandes et contraintes du sujet.
+Les avis se sont majoritairement dirigés vers un Real Time Strategy (RTS) game, soit un jeu de stratégie en temps réel.
+Après reflexion, nous avons fini par choisir Age Of Empire, car cela motivait tous les membres de l'équipe, et qu'une version alégée nous parassait accessible.
 
 # Conception du Jeux
 
