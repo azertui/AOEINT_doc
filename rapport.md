@@ -41,22 +41,24 @@ Après discussion GO nous a paru plus adapté, dans le sens où il ressemble for
 
 En discutant entre membres de l'équipe, nous nous sommes tournés vers une achitecture de type "micro-services" : c'est celle qui nous a semblée la plus propie à l'application des connaissances respectives de chacun.
 
-### Micro service
+### Micro-services
 
-L'avantage d'une architecture micro-service est:
+Les avantages d'une architecture de type "micro-services" sont :
 * l'indépendance entre les services
-* Chaque service contient une quantité de code raisonable et facilement assimilable
-* On peut augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
+* la quantité de code raisonable et facilement assimilable contenue dans chaque service
+* la possibilité d'augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
 
 
-### API authentification et d'information sur les lobbies
+### API authentification et d'informations sur les lobbies
 
-Pour ce projet, nous avons décidé de choisir de faire une api GraphQL pour se connecter/enregister et obtenir la liste des serveurs disponibles.
+Nous avons décidé de choisir la réalistion d'une API GraphQL afin de se connecter/enregister et obtenir la liste des serveurs disponibles.
 
 #### GraphQL
 
-GraphQL est un language créer par Facebook, contrairement à une API restful, on créer un schema derequete, puis le serveur l'analyse et renvoie les informations demandés.
-De plus le projet appolo server permet de monter une API graphql très simplement et rapidement
+GraphQL est un language créé par Facebook. 
+Même si REST (Representational State Tranfer) demeure le format standart des API, certains développeurs décident de se tourner vers GraphQL pour combler leslacunes majeures de ce format.
+Contrairement à REST, et son modèle relativement structuré basé sur les ressources, GraphQL intervient avc une approche plus flexible : on crée un schéma de requête, puis le serveur l'analyse et renvoie les informations demandées.
+De plus, l'utilisation du projet "Apollo Server" permet de monter une API GraphQL très simplement et rapidement.
 
 #### Knex / bookshelf
 
