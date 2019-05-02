@@ -110,7 +110,7 @@ Les avantages d'une architecture de type "micro-services" sont :
 * la possibilité d'augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
 
 
-### API authentification et d'informations sur les lobbies
+### API authentification
 
 Nous avons décidé de choisir la réalistion d'une API GraphQL afin de se connecter/enregister et obtenir la liste des serveurs disponibles.
 
@@ -129,8 +129,26 @@ De manière imagée, un ORM peut être décrit comme une couche d'abstraction en
 
 ### API de classement
 
-Pas faite
+Ce Service permet de calculer le niveaux de chaque joueur, il exploite pour cela les résulats des parties.
 
+#### Ligues
+
+Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la
+ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à
+terminer dans la ligue qu'il lui correpond
+
+#### Avantages
+
+L'avantage de ce système de classement et que le niveau de chaque partie correspond au niveau des joueurs.
+Cela permet d'améliorer l'expérience de jeu grace à un système équilibré.
+
+#### Avancement
+
+A l'heure actuelle, nous l'avons pas pu l'implementer car c'est un module non necessaire au déroulement de la partie qui est la priorité.
+
+### API de gestion des parties
+
+Ce service permet de rejoindre des partie, obtenir des informations sur les parties comme la composition des équipes.
 
 ### Instance de partie
 
@@ -297,5 +315,9 @@ L'un des avantages de go et l'outils go test, il permet de lancer très facileme
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
+# Partie Personel
 
+## Timothée Oliger
 
+Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
+jeux.
