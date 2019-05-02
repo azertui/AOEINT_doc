@@ -423,15 +423,17 @@ Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'am
 ## Louis-César Pagès
 
 Ce projet m'a permis d'utiliser pleinement les connaissances apprise tout au long de mes études et notament lors de mon séjour ERASMUS en Espagne. En effet, j'ai déjà eu l'opportunité de créer
-un projet de dévelopement dans le cadre d'une UE "Software engineering" où pû en apprendre beaucoup sur l'environnement de travail Visual Studio. Donc, lorsque j'ai été assigné à la communication
+un projet de dévelopement dans le cadre d'une UE "Software engineering" où j'ai pû en apprendre beaucoup sur l'environnement de travail Visual Studio. Donc, lorsque j'ai été assigné à la communication
 côté client, je me suis senti très à l'aise avec le code C# généré par Unity. 
 Le plus compliqué fut de trouver la manière d'intégrer le framework GRPC sur Unity. En effet, une documentation existe pour le dévelopement avec C# mais pour Unity cela reste experimental. 
 J'ai dû dans un premier temps me documenter sur cette intégration notamment en cherchant des exemples de projets/programmes Unity fonctionnant avec GRPC. Thimothée m'a aidé à trouver la commande
 pour générer à partir d'un fichier .proto le code GRPC en C#. A partir de là, il fallait insérer la librairie dans le dossier plugin du programme Unity. 
-Le développement au fur et à mesure de la communication s'est faite sans grande difficulté. Il a fallut s'adapter au formalisme imposé par le grpc. Une première approche fût d'établir
-les structures de données échangées entre le serveur et le client. Avec Louis Thommann, nous nous sommes donc mis d'accord dès le début pour définir ces spécification. Le fichier .proto
+
+Le développement au fur et à mesure de la communication s'est faite sans grande difficulté. Il a fallut s'adapter au formalisme imposé par le grpc. Une première approche a été d'établir
+les structures de données échangées entre le serveur et le client. Avec Louis Thommann, nous nous sommes donc mis d'accord dès le début pour définir ces spécifications. Le fichier .proto
 devant être unique (Les structures de données et fonctionnalités doivent être les mêmes côté client et serveur), chaque nécessité de modifier ce fichier faisait l'objet d'une concertation 
 entre nous deux. 
+
 Mon travail a aussi été étrois avec les personnes en charges du client. En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devait être d'implémenter leurs besoins 
 par rapport au serveur (par exemple: Obtenir les resources actualisés d'un joueur, charger des éléments demandés par le serveur) , mais aussi de faire de la pédagogie en expliquant les limites des 
 communications pouvant être établis et les besoins du serveur (exemple: envois des déplacements de npc, Zone et actions non autorisés par le serveur). 
