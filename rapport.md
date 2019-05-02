@@ -55,6 +55,8 @@ Stephane \textsc{Cateloin}
 
 \tableofcontents
 
+\newpage
+
 # Introduction
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
@@ -298,6 +300,28 @@ Le fait que tout le monde ne travaillait pas sous le même OS, le developpement 
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
+## Explication de certaines fonctionnalités du jeu
+
+### Deplacement (move to)
+
+Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les bâtiments ou les ressources présentes.
+Tout d'abord, le chemin à suivre est calculé par le serveur.
+Pour cela, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connaît ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
+
+### Récolte de ressources
+
+Il existe deux méthodes de récolte, la récolte de ressource par ciblage et celle se réalisant automatiquement, la deuxième n'étant pas sur d'être implémentée.
+Les deux unité pouvant récolter des ressources sont les villageois et les harvesters
+-Le joueur sélectionne une ou plusieurs unités pouvant récolter des ressources puis clique sur une ressource. Le unité va se déplacer vers la case la plus proche et n'étant pas obstruée lui permettant d'être à portée de récolte. S'il n'existe pas de chemin possible pour accéder à la ressource ou que toutes les cases permettant d'être à portée de la ressource sont obstrués, le clic sur la ressource ne fera pas déplacer le unité. Lorsqu'il se trouve à portée de la ressource il va commencer à récolter la ressource jusqu'à épuisement de la ressource, déplacement du unité ou mort du unité. Contrairement à  AOE II, les unités ne ramènent par leurs ressources vers un bâtiment.
+-Toutes les 10 millisecondes, chaque unité inactif ira récolter une ressource si elle se trouve dans un rayon de quelques cases autour de l'unité et qu'il existe un accès pour la récolter. A noter qu'afin d'économiser des ressources, une fois cette détection faite, elle ne sera pas refaite tant que l'unité ne s'est pas déplacé vers un autre endroit.
+
+### Attaque
+
+Il existe deux méthodes d'attaque, l'attaque par ciblage et celle se réalisant automatiquement, la première n'étant pas sur d'être implémentée.
+Toutes les unités sont capables d'attaquer.
+-Le joueur sélectionne une ou plusieurs unités puis clique sur une unité ennemie ou un bâtiment ennemi. Si le chemin n'est pas obstrué, l'unité va se déplacer vers la case la plus proche permettant d'être à portée d'attaque de la cible puis l'attaque automatique se déclenchera une fois arrivé à la case. Pour l'attaque d'unité, une fonctionnalité qui n'est pas sur d'être implémenter en raison de problèmes de concurrences est que l'unité ou le groupe d'unités pourchasse et suive la cible jusqu'à ce qu'elle soit morte ou hors de vue.
+-Toutes les 10 millisecondes pour chaque unité inactive, une détection sera lancée afin de savoir s'il y a une unité ennemie ou un bâtiment ennemi à portée. Si c'est le cas elle commence à attaquer l'unité ou le bâtiment ennemi.
+
 ## Client
 
 Le client est la seule partie avec laquelle l'utilisateur interagit.
@@ -320,21 +344,6 @@ implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages ci
 
 Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
 issus du fichier .proto
-
-#### Pour implémenter une fonctionnalité dans le langage cible il faut dans un premier temps se référer au fichier .proto
-
-![Unity](images/codeproto.PNG) 
-
-#### Ainsi l'équivalence de cette structure en C# correspond à l'image ci-dessous
-
-![Unity](images/codeunity.PNG)
-
-### Deplacement (move to)
-
-Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les batiments ou les ressources présentes.
-Tout d'abord, le chemin à suivre est calculé par le serveur.
-Pour celà, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connait ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
-
 
 ### UI
 
@@ -421,7 +430,13 @@ L'un des avantages de go et l'outils go test, il permet de lancer très facileme
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
+#### Les data races/concurrences entre les différents mouvement d'actions
+
+Pour chaque unité, s'il est en train de réaliser une action, et qu'il est ordonnée d'en faire une autre, la nouvelle doit annuler la précédente action. Pour pouvoir réaliser cela, nous avons exploiter les channels offerts par Golang. Mais l'utilisation de ces channels provoquait eux-même une data race, nous avons donc du utiliser des synchronisations de groupes pour éviter des accès concurrentiels.
+
 # Partie Personnel
+
+\newpage
 
 ## Timothée Oliger
 
@@ -436,12 +451,12 @@ Cela peut s'expliquer par un manque de pratiques et des explications pas toujour
 Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
 
 J'ai également pu me perfectioner en:
-* déployant le système de CI / CD
-* deployant les services grâce à kubernetes
-* adaptater les services au cloud
-* Implémenter le système d'authentification
-* apporter du soutient logistique pour configurer les systèmes de l'équipe
-* Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
+- déployant le système de CI / CD
+- deployant les services grâce à kubernetes
+- adaptater les services au cloud
+- Implémenter le système d'authentification
+- apporter du soutient logistique pour configurer les systèmes de l'équipe
+- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
 
 Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
 
@@ -451,6 +466,8 @@ Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et mo
 J'ajoute que la création d'un registry gitlab serait bénéfique pour les années futures.
 Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, deploiement).
 
+\newpage
+
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
@@ -458,10 +475,10 @@ En effet là était le plus gros problème de mon point de vue car je me suis so
 Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
 Ma partie a été centrée sur plusieurs points :
-* les fonctions de créations des différentes entitées à des positions précises.
-* les pages de connexion avec l'appel à l'api
-* la gestion de déplacement de toutes les entités sur la carte
-* les sons
+- les fonctions de créations des différentes entitées à des positions précises.
+- les pages de connexion avec l'appel à l'api
+- la gestion de déplacement de toutes les entités sur la carte
+- les sons
 
 Unity m'a vraiment aidé surtout sur la partie Déplacement des entités car il existe des fonctionnalités très efficaces nativement incluses.
 
@@ -471,6 +488,8 @@ C'est pour cela que j'aurais préféré partir sur un jeu plus accessible comme 
 
 Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity, sur le modèle client / serveur, sur la cohésion de groupe ou alors sur d'autres choses comme l'utilisation d'une API ou sur les protocoles de communications, etc... qui m'étaient jusqu'à présent inconnus.
 Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et pour avoir la satisfaction de terminer correctement ce qui à été commencé.
+
+\newpage
 
 ## Chloé Riche
 
@@ -491,6 +510,8 @@ Mes différentes tâches dans le jeu sont regroupées dans cette liste non exhau
 
 J'ai tenté de mettre au maximum à profit mon expérience dans le domaine de l'image et du design graphique, afin de proposer un expérience client agréable et cohérente avec l'univers que nous avons souhaité développer.
 
+\newpage
+
 ## Monfouga Marie
 
 Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. J'ai aussi pu découvrir ce qu'était de travailler sur un projet avec un grand groupe et des parties à réaliser bien distinctes.
@@ -509,6 +530,8 @@ La partie la plus difficile au commencement était la mise en commun de nos modi
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
 Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres et à s'accorder avec l'équipe serveur.
 
+\newpage
+
 ## Rauch Arthur
 
 Développer Tiny Empire était une expérience intéressante, notamment au niveau de l'organisation du projet et de la répartition du travail, tâches devenues bien plus importantes que lors de plus petits projets effectués auparavant.
@@ -520,6 +543,8 @@ Il était nécessaire pour celà d'établir dès la création des premiers proto
 C'est ainsi que furent créés deux buffers correspondant respectivement aux différents types d'informations utiles à transmettre par GRPC et un tableau d'identification unique des différentes instances d'objets de la partie en cours.
 J'ai également réalisé les premières versions des algorithmes de déplacement d'entités ainsi que l'algorithme de pathfinding par matrice de poids et veillé à la bonne compréhension des convensions adoptées lors de nos réunions afin de toujours maintenir le fonctionnement interne d'une partie sur serveur compatible avec son exécution par le client.
 La résolution des problèmes de concurrence s'est révélé être le problème le plus ardu auquel je fus confronté, celui-ci évoluant au cours de nouvelles utilisations auparavant imprévues des différents objets et nécessitant constamment de nouvelles solutions, telles que l'utilisation de channels et d'autres systèmes de blocage ou de communication avec attente passive. Afin d'être sûr de résourdre cette problème et de maintenir la cohésion lors de la réunion de différents travaux, il a fallu que je m'informe en permanence des dernières résolutions de mes collaborateurs et que je travaille réellement de concert avec eux, ce qui me plut beaucoup.
+
+\newpage
 
 ## Louis-César Pagès
 
@@ -546,6 +571,7 @@ En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devai
 Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur.
 Une position central dans la communication que je trouve très intéressant.
 
+\newpage
 
 ## Dorian SCHWAMBACH
 
@@ -576,6 +602,8 @@ J'ai pour ma part surtout communiqué Arthur qui a su être très réactif si j'
 
 En bref, grâce à ce projet, j'ai pu apprendre un nouveau langage ainsi qu'en apprendre plus sur la réalisation concrète d'un "gros" projet et mettre en pratique mes connaissances acquises lors de la licence
 
+\newpage
+
 ## Louis THOMANN
 
 J'ai fait partie de l'équipe réseau dès son début pour gérer les communications entre le client et le serveur.
@@ -604,6 +632,8 @@ Mais cela demande déjà une organisation et une logistique impossible à négli
 Nous avons pu compter sur le regard de Timothée pour nous proposer des technologies intéressantes.
 Il a aussi réalisé des tests d'intégration continue qui ont aussi été un grand défi lors des "Milestone".
 Ce projet laisse un souvenir indélébile d'une première expérience de développement dans une équipe.
+
+\newpage
 
 # Conclusion
 
