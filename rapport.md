@@ -276,15 +276,15 @@ Nous avons choisi discord comme logiciel de chat. En plus d'être gratuit il per
 
 Pour pouvoir garantir un maximum de stabilité, à chaque publication de commit, des scripts de test sont lancé sur des runner gitlab.
 
-### gitlab CI
+### Gitlab CI
 
 Gitlab permet grace au fichier .gitlab-ci.yaml de déclarer un pipeline qui peut tester, publier et deployer des solutions logiciels
 
-### Webhook gitlab
+### Webhook Gitlab
 
 Lorsqu'il y a un évenement sur un des projet git du groupe gitlab AOEINT, un message apparait dans le salon CI du discord, cela permet de prendre connaissance d'un commit ou d'une issue.
 
-### mirroir github / docker cloud
+### Mirroir Github / Docker Cloud
 
 L'instance gitlab de l'université de possède pas de registry docker.
 Dockercloud perme
@@ -355,19 +355,19 @@ C'est à dire que dans le payload on rajoute un champs timeout qui n'est rien d'
 
 L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
 
-## docker
+## Docker
 
 Pour palier à ce problème, l'utilisation de docker à permis de faciliter le dévelopement.
 En effet grace aux scripts présents dans les dossiers git des modules, il est très rapidement et simplement possiblede créer des conteneurs faisant tourner les services.
 Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro car docker necessite des modules de virtualisation.
 
-## git
+## Git
 
 Pour developer, l'utilisation de git semblait évidente.
 Il n'y a pas vraiment eut de debat entre git et svn car git est accepter et compris par tous les
 membres de l'équipe.
 
-### branches
+### Branches
 
 Pour ne pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
 branches indépendantes excepté pour l'équipe front.
@@ -414,7 +414,7 @@ L'un des avantages de go et l'outils go test, il permet de lancer très facileme
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
-# Partie Personel
+# Partie Personnel
 
 ## Timothée Oliger
 
@@ -447,9 +447,8 @@ Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, d
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
-En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalitées qui finalement n'ont pas été utilisées, mises de
-côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi
-grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
+En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalitées qui finalement n'ont pas été utilisées, mises de côtés ou alors gérées côté serveur.
+Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
 Ma partie a été centrée sur plusieurs points :
 - les fonctions de créations des différentes entitées à des positions précises.
@@ -463,9 +462,8 @@ En ce qui concerne le choix du jeu j'étais contre un RTS (surtout Age of Empire
 Nous avons du limiter notre jeu au strict minimum pour avoir quelque chose de jouable ce qui à mon avis n'est pas la meilleure stratégie pour un premier projet d'une telle ampleur.
 C'est pour cela que j'aurais préféré partir sur un jeu plus accessible comme "Bomberman" qui est plus facile à réaliser et à personnaliser.
 
-Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity, sur le modèle client / serveur, sur la cohésion de groupe ou alors sur d'autres choses comme l'utilisation d'une
-API ou sur les protocoles de communications etc ... qui m'étaient jusqu'à présent inconnus. Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et
-pour avoir la satisfaction de terminer correctement ce qui à été commencé.
+Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity, sur le modèle client / serveur, sur la cohésion de groupe ou alors sur d'autres choses comme l'utilisation d'une API ou sur les protocoles de communications, etc... qui m'étaient jusqu'à présent inconnus.
+Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
 ## Chloé Riche
 
@@ -485,6 +483,7 @@ Mes différentes tâches dans le jeu sont regroupées dans cette liste non exhau
 * réalisation du document de communication
 
 J'ai tenté de mettre au maximum à profit mon expérience dans le domaine de l'image et du design graphique, afin de proposer un expérience client agréable et cohérente avec l'univers que nous avons souhaité développer.
+
 ## Monfouga Marie
 
 Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. J'ai aussi pu découvrir ce qu'était de travailler sur un projet avec un grand groupe et des parties à réaliser bien distinctes.
@@ -546,6 +545,34 @@ Globalement, la communication fût bonne, je n'ai pas eu de problème pour joind
 
 En bref, grâce à ce projet, j'ai pu apprendre un nouveau langage ainsi qu'en apprendre plus sur la réalisation concrète d'un "gros" projet et mettre en pratique mes connaissances acquises lors de la licence
 
+## Louis THOMANN
+
+J'ai fait partie de l'équipe réseau dès son début pour gérer les communications entre le client et le serveur.
+J'ai été très heureux de travailler avec la technologie GRPC.
+De plus d'être très polyvalente, son utilisation est extrêmement naturelle avec Go.
+On ne se rend pas compte qu'on communique avec un serveur/client distant.
+
+J'ai beaucoup apprécié la venue de Louis-César dans l'équipe réseau au mois de mars.
+J'avais pu commencer le développement des fonctions de réponse du serveur, mais le moment de les tester, ce fut la surprise.
+Le C# mettant totalement inconnue, et la compilation du .proto en C# n'étant pas aussi simple qu'en Go, Louis-César nous fut un excellent atout.
+Il a su, avec l'aide de Timothé, comment convertir le .proto de sorte à l'utiliser avec Unity.
+Nous avons beaucoup travaillé ensemble, de sorte à établir un bon protocole de communication.
+
+Une autre personne avec qui j'ai beaucoup travaillé est Arthur.
+C'était mon référent côté serveur, il m'aida beaucoup pour remplir les premiers services GRPC.
+Sachant tout ce qui se développait sur le serveur, son aide fut crucial pour comprendre tout ce qui avait été fait et savoir comment l'utiliser.
+
+J'ai pu, lors de ce projet, apprendre le langage Go.
+Ce langage est tellement proche du C, mais avec un peu de re-nouveau qui est très appréciable.
+J'ai aussi eu l'occasion d'améliorer ma maitrise de Git.
+En plus de voir son utilisation dans un groupe assez important, j'ai pu comprendre mieux l'importance du Git Flow, de la clarté d'un commit et des autres commandes existantes.
+
+Je conclurais en disant que le plus grand défi de ce projet, en plus d'arriver à finir ce jeu très ambitieux dans les temps, était de bien s'organiser.
+On peut penser que 2-3 personnes par équipes fonctionnelles dans un projet à 8 c'est peu.
+Mais cela demande déjà une organisation et une logistique impossible à négliger.
+Nous avons pu compter sur le regard de Timothé pour nous proposer des technologies intéressantes.
+Il a aussi réalisé des tests d'intégration continue qui ont aussi été un grand défi lors des "Milestone".
+Ce projet laisse un souvenir indélébile d'une première expérience de développement dans une équipe.
 
 # Conclusion
 
