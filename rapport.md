@@ -59,7 +59,6 @@ Stephane \textsc{Cateloin}
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
 Il s'agit de créer un jeu multijoueur en temps réel, reprenant un jeux des années 1980-1990.
-Il est entièrement open source les modules sont disponible sur le[git](https://git.unistra.fr/AOEINT/) le l'unistra.
 
 # Contexte
 
@@ -90,7 +89,6 @@ Nous avons du faire des compromis pour que tous le monde puisse progresser dans 
 Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
 JAVA étant lourd et en voie d'extinction, Pyhton et GO étaient les deux choix restants.
 Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages suivant:
-
 - d'être compilable
 - d'intégrer des outils de test
 - d'intégrer une gestion des dépendances
@@ -151,8 +149,9 @@ Ce Service permet de calculer le niveaux de chaque joueur, il exploite pour cela
 
 #### Ligues
 
-Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à terminer dans la ligue qu'il lui correpond.
-Cette API n'a pas encore developper car elle est d'une priorité basse.
+Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la
+ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à
+terminer dans la ligue qu'il lui correpond
 
 #### Avantages
 
@@ -166,9 +165,6 @@ A l'heure actuelle, nous l'avons pas pu l'implementer car c'est un module non ne
 ### API de gestion des parties
 
 Ce service permet de rejoindre des partie, obtenir des informations sur les parties comme la composition des équipes.
-Cela permet à une instance de partie de savoir si les joueurs qui souhaitent intéragir avec la partie appartiennent bien à la partie.
-A terme cette API pourra créer à la volée des instances de partie.
-A l'heure actuelle cette API n'est pas terminée mais elle devrait aparaitre en fin de semaine.
 
 ### Instance de partie
 
@@ -228,22 +224,13 @@ Elle est également en charge du dévelopement des API.
 Louis T la composait à l'alpha avec le support de Tim, puis Louis Cesar le rejoigna pour booster le developement du client.
 Le framework utilisé pour établir cette communication est "GRPC" entre l'instance de jeu et le client.
 
+
+
 ## Répartition des taches
 
 La répartition des taches se fait grâce à gitlab, les issues sont créés et attribué ou choisi par les personnes disponibles.
 Ce système permet de d'attribuer des taches correspondantes aux personnes augmentant ainsi la productivité.
 les bugs bloquant le developement des features en cours de dévelopement sont misent en priorité.
-
-### Planification
-
-Pour planifier le projet nous avons séparer le dévelopement en 4 phases.
-![milestone](images/miles.png)
-
-Comme nous travaillant de façon itérative, des issues évidente ont tout d'abord était ajouter à chaque étapes, puis la création des issues s'est faite à chaques itérations pour être le plus précis, cohérent et productif possible.
-
-Voici l'etat de la plafinication gantt à ce jour:
-![gantt client](images/gantt_client_now.png)
-![gantt serveur](images/gantt_server_now.png)
 
 ### Gitlab
 
@@ -291,7 +278,7 @@ Dockercloud n'est pas compatible avec gitlab, pour pouvoir profiter de la ci il 
 
 Le fait que tout le monde ne travaillait pas sous le même OS, le developpement à posé quelques soucis en début de projet.
 
-## S'adapter aux configurations
+## S'adapter aux configs
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
@@ -315,8 +302,9 @@ Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des inform
 Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisés de manière générique pour les 2 langages. Les modifications de ce fichier
 implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
 
-Dans le dossier utilisé pour Unity, il faut insérer dans le dossier "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
+Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
 issus du fichier .proto
+
 
 ### Deplacement (move to)
 
@@ -341,36 +329,22 @@ Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie 
 
 ![JWT](images/jwt.png)
 
-Un JWT est composé de trois partie séparées par des points, un header qui définit qu'elle est la technologie de chiffrage, un payload contenant les informations "payload" et enfin la signature vérifiant l'intégrité du JWT dans son ensemble.
-
-Nous avons choisi d'utiliser le JWT pour authentifier chaque communication (instance <-> API, client <-> instance, client <-> API) car c'est une authentification stateless.
-C'est à dire que dès qu'il est générer, il n'y a que besoin de la clé publique pour le vérifier, cela permet d'isoler la base de donnée utilisateur augmentant ainsi la sécurité.
-De plus c'est un gain significatif de performance, car une fois générer, il ne faut que une faible puissance de calcul pour vérifier l'authentification.
-
-C'est à dire que dans le payload on rajoute un champs timeout qui n'est rien d'autre qu'un timestamp, comme le JWT est "inviolable", si le timestamp est plus ancien qu'a la date de vérification, il devient faux et ne donne plus aucuns droits, il faut alors le regénérer.
 
 L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
-
 
 ## docker
 
 Pour palier à ce problème, l'utilisation de docker à permis de faciliter le dévelopement.
-En effet grace aux scripts présents dans les dossiers git des modules, il est très rapidement et simplement possiblede créer des conteneurs faisant tourner les services.
-Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro car docker necessite des modules de virtualisation.
+Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro.
 
 ## git
 
 Pour developer, l'utilisation de git semblait évidente.
-Il n'y a pas vraiment eut de debat entre git et svn car git est accepter et compris par tous les
-membres de l'équipe.
 
 ### branches
 
 Pour ne pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
 branches indépendantes excepté pour l'équipe front.
-En effet comme unity dispose de son propre système de colaboration contrairement à godot, il est très difficile de travailler chaqu'un de son coté puis merge.
-Il en devient casiment impossible lorsque différentes branches deviennent très éloignées.
-De plus pour éviter des merges non maitrisé, Nous avons du faire un compromis en travaillant directement tous ensemble sur la branche develop puis de merge les versions stables dans la branche master.
 
 #### b -> develop
 
@@ -415,36 +389,13 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 ## Timothée Oliger
 
-Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce jeu.
-
-Etant chef de projet durant ce projet, j'ai essayé de faire profiter de mon expérience pour proposer des solutions et des bonnes pratiques qui je l'espère ont améliorés la qualité du projet.
-Cependant je pense que le projet n'a pas évolué de façon continu et malheuresement certaines personnes n'ont pas joués le jeu de la micro organisation.
-Au lieu d'exposer leurs discussions techniques sur gitlab,  certains utilisaient les messages privées puis prenaient des initatives non consenti.
-Cela à entrainé des contre-temps liés à des modifications de spécifications sans concertation et de modules inutiles, entrainant des tempêtes de bugs.
-Cela peut s'expliquer par un manque de pratiques et des explications pas toujours clair, peut être aussi par un manque de temps / investissement.
-
-Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
-
-J'ai également pu me perfectioner en:
-- déployant le système de CI / CD
-- deployant les services grâce à kubernetes
-- adaptater les services au cloud
-- Implémenter le système d'authentification
-- apporter du soutient logistique pour configurer les systèmes de l'équipe
-- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
-
-Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
-
-Pour conclure, globalement ce projet s'est bien dérouler mais l'hétérogénéité entre les membres à compliquer le déroulement du projet, par ailleurs je trouve que des membres se sont démenés pour finir ce projet et ont enormement progréssé dans leurs domaines.
-Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et motivations est très difficile, je pense après reflexions que nous avons choisi quelquechose de trop ambitieux.
-
-J'ajoute que la création d'un registry gitlab serait bénéfique pour les années futures.
-Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, deploiement).
+Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
+jeux.
 
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
-En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnabilités qui finalement n'ont pas été utilisées, mises de
+En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalitées qui finalement n'ont pas été utilisées, mises de
 côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi
 grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
@@ -464,28 +415,12 @@ Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity
 API ou sur les protocoles de communications etc ... qui m'étaient jusqu'à présent inconnus. Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et
 pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
-## Chloé Riche
 
-Un projet avec autant de personnes impliquées à été une réelle découverte pour moi, autant sur la communication entre les personnes que sur la séparation des tâches, plus marquée que sur un plus petit projet.
-Je n'avais jamais travaillé avec des protocoles de communication ou encore une équipe entièrement réseau : nous avons donc du apprendre à être clairs dans nos réunions et processus de travail, même avec des personnes qui ne connaissent pas les outils avec lesquels nous travaillons. Lorsque ce n'était pas le cas, certaines personnes se retrouvaient à coder des fonctions déjà programmées ou à utiliser des prototypes non existants par exemple.
-
-Réaliser un projet de plus grande ampleur sur Unity m'a bien sûr permis de développer mes capacités sur ce moteur de jeu, autant en programmation C# qu'en manipulation de l'interface graphique. Je n'avais jamais eu à créer d'UI aussi importante auparavant.
-
-S'impliquer dans la décision du jeu a été difficile pour moi, étant donné que je n'avais pas idée de la quantité de travail impliquée par les différentes propositions. Je pense que nous sommes pour la plupart d'accord sur le fait que un "Age Of Empire" - like est un pari probablement trop ambitieux pour le temps qui nous a été donné, cependant je suis quand même réjouie de voir les progrès que nous avons réalisé depuis le commencement.
-
-Mes différentes tâches dans le jeu sont regroupées dans cette liste non exhaustive :
-
-* implémentation de la sélection des unités, bâtiments et ressources selon les conditions respectives à appliquer (multi-selection pour les unités notamment)
-* le développement de l'UX/UI via des wireframes et ensuite sur Unity
-* modélisation des bâtiments sur Autodesk Maya et intégration dans Unity
-* réalisation du logo du jeu
-* réalisation du document de communication
-
-J'ai tenté de mettre au maximum à profit mon expérience dans le domaine de l'image et du design graphique, afin de proposer un expérience client agréable et cohérente avec l'univers que nous avons souhaité développer. 
 ## Monfouga Marie
 
 Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel.
 Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci.
+
 Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres.
 La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity.
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
@@ -510,6 +445,28 @@ par rapport au serveur (par exemple: Obtenir les resources actualisés d'un joue
 communications pouvant être établis et les besoins du serveur (exemple: envois des déplacements de npc, Zone et actions non autorisés par le serveur).
 Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur. Une position central dans
 la communication que je trouve très intéressant.
+
+
+## Dorian SCHWAMBACH
+
+### Choix du jeu
+
+Personnellement même si j'adore ce jeu, je n'étais pas totalement pour le choix de ce jeu en raison de sa complexité à mettre en oeuvre pour le premier gros projet que j'ai pu faire.
+
+### Choix du langage
+
+Faisant parti de l'équipe serveur, ce projet m'a permis d'apprendre un nouveau langage qui est Golang. Arthur, louis-césar et moi-même avons d'abord voulu utiliser java car nous avons eu des cours utilisant ce langage. Timothée nous a proposer d'utiliser le langage Golang à la place. Après réflexion, nous avons finalement opté pour Golang en raison des différents avantages qu'il comportant par rapport à java tel que la performance, le parallélisme, l'intégration avec Git, la communication avec le client et les tests unitaires. L'apprentissage du langage m'a pris un peu de temps, néanmoins le langage ayant des similitudes avec C, l'apprentissage a été simplifié.
+
+### Domaine de travail
+
+Mon travail s'est principalement porté sur la récolte de ressources, la gestion de l'attaque et les actions de déplacement des PNJ. Ce qui m'a prit le plus de temps fut de corriger les nombreuses data-race qu'ont engendrer ces différentes actions, notamment l'interaction entre ces différentes actions. Pour les identifier, les tests de Golang ainsi que la CI mise en place sur Git m'ont été utiles
+
+### Communication
+
+Globalement, la communication fût bonne, je n'ai pas eu de problème pour joindre une personne ou le groupe. Les réunions hebdomadaires ont été très utiles afin d'être au point sur notre avancement et de pouvoir bien fixer les fonctionnalités à produire et éviter que chacun travaille de son côté sans être informé de ce que réalisent les autres et des besoins urgents pour le projet. Néanmoins, il y a eu parfois quelques soucis de communication sur les fonctionnalités à produire. Par exemple, on m'avait dit de réaliser une récolte de ressource automatique alors que finalement il était plus important d'abord d'avoir une récolte de ressource s'effectuant par ciblage. J'ai pour ma part surtout communiqué Arthur qui a su être très réactif si j'avais des commentaires ou des questions sur le projet que ce soit technique ou théorique.
+
+En bref, grâce à ce projet, j'ai pu apprendre un nouveau langage ainsi qu'en apprendre plus sur la réalisation concrète d'un "gros" projet et mettre en pratique mes connaissances acquises lors de la licence
+
 
 # Conclusion
 
