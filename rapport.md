@@ -321,3 +321,10 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
 jeux.
+
+
+# Conclusion
+
+Ce projet nous a permis d'appliquer la théorie enseignée ainsi que d'apprendre divers facette du developement.
+Nous tenons à remercier Stephane Cateloin qui a su nous guidé et nous accompagné pour mener à bien ce projet et de nous avoir diriger vers un produit réalisable.
+Nous allons continuer ce projet jusqu'a avoir une version très stable et publiable.
