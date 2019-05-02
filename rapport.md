@@ -392,8 +392,24 @@ jeux.
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
 En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalitées qui finalement n'ont pas été utilisées, mises de
-côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi
+côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi 
 grosse séparation client / serveur contrairement au jeu développer durant l'UE "Moteur de Jeux 3D".
+
+Ma partie a été centrée sur plusieurs points :  
+- les fonctions de créations des différentes entitées à des positions précises.
+- les pages de connexion aves l'appel à l'api
+- la gestion de déplacement de toutes les entités sur la carte
+- les sons 
+
+Unity m'a vraiment aidé surtout sur la partie Déplacement des entités car il existe des fonctionnalités très efficaces nativement incluses.
+
+En ce qui concerne le choix du jeu j'étais contre un RTS (surtout Age of Empire) car ce style de jeux est très complex à prendre en main et donc encore plus à réaliser à la vue de toutes les fonctionnalités à prendre en compte.
+Nous avons du limiter notre jeu au strict minimum pour avoir quelque chose de jouable ce qui à mon avis n'est pas la meilleure stratégie pour un premier projet d'une telle ampleur.
+C'est pour cela que j'aurais préféré partir sur un jeu plus accessible comme "Bomberman" qui est plus facile à réaliser et à personnaliser.
+
+Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity, sur le modèle client / serveur, sur la cohésion de groupe ou alors sur d'autres choses comme l'utilisation d'une
+API ou sur les protocoles de communications etc ... qui m'étaient jusqu'à présent inconnus. Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et
+pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
 ## Monfouga Marie
 
