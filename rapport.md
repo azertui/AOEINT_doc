@@ -433,12 +433,12 @@ Cela peut s'expliquer par un manque de pratiques et des explications pas toujour
 Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
 
 J'ai également pu me perfectioner en:
-- déployant le système de CI / CD
-- deployant les services grâce à kubernetes
-- adaptater les services au cloud
-- Implémenter le système d'authentification
-- apporter du soutient logistique pour configurer les systèmes de l'équipe
-- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
+* déployant le système de CI / CD
+* deployant les services grâce à kubernetes
+* adaptater les services au cloud
+* Implémenter le système d'authentification
+* apporter du soutient logistique pour configurer les systèmes de l'équipe
+* Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
 
 Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
 
@@ -457,10 +457,10 @@ En effet là était le plus gros problème de mon point de vue car je me suis so
 Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
 Ma partie a été centrée sur plusieurs points :
-- les fonctions de créations des différentes entitées à des positions précises.
-- les pages de connexion avec l'appel à l'api
-- la gestion de déplacement de toutes les entités sur la carte
-- les sons
+* les fonctions de créations des différentes entitées à des positions précises.
+* les pages de connexion avec l'appel à l'api
+* la gestion de déplacement de toutes les entités sur la carte
+* les sons
 
 Unity m'a vraiment aidé surtout sur la partie Déplacement des entités car il existe des fonctionnalités très efficaces nativement incluses.
 
