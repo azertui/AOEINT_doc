@@ -306,7 +306,10 @@ issus du fichier .proto
 
 ### Deplacement (move to)
 
-Arthur
+Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les batiments ou les ressources présentes.
+Tout d'abord, le chemin à suivre est calculé par le serveur.
+Pour celà, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connait ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
+
 
 ### UI
 
@@ -314,6 +317,7 @@ Arthur
 On a essayé pour l'UI de rester proche de l'aspect de l'original tout en restant simple à prendre en main.
 On affiche en bas à gauche les ressources du joueur en bois, pierre et nourriture.
 Au milieu apparait une image du type d'objet sélectionné ainsi que son nom. Lorsque l'on sélectionne plusieurs unités leur nombre est également indiqué. A droite apparait un bouton avec une maison qui permet de faire apparaitre une liste de bâtiments constructibles. Ceux ci sont grisés si les ressources sont insuffisantes pour la production.
+
 
 ### Authentification
 
@@ -411,12 +415,11 @@ Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, d
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
-En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalités qui finalement n'ont pas été utilisées, mises de
+En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnabilités qui finalement n'ont pas été utilisées, mises de
 côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi
 grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
 Ma partie a été centrée sur plusieurs points :
-
 - les fonctions de créations des différentes entitées à des positions précises.
 - les pages de connexion avec l'appel à l'api
 - la gestion de déplacement de toutes les entités sur la carte
@@ -432,9 +435,8 @@ Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity
 API ou sur les protocoles de communications etc ... qui m'étaient jusqu'à présent inconnus. Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et
 pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
-## Monfouga Marie
 
-Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci. Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres. La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity. Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits. Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.
+## Monfouga Marie
 
 # Conclusion
 
