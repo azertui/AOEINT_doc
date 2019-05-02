@@ -506,23 +506,28 @@ Lors d'un ajout de fonctionnalité il fallait également faire attention à ne p
 
 ## Louis-César Pagès
 
-Ce projet m'a permis d'utiliser pleinement les connaissances apprises tout au long de mes études et notament lors de mon séjour ERASMUS en Espagne. En effet, j'ai déjà eu l'opportunité de créer
-un projet de dévelopement dans le cadre d'une UE "Software engineering" où j'ai pû en apprendre beaucoup sur l'environnement de travail Visual Studio. Donc, lorsque j'ai été assigné à la communication
+Ce projet m'a permis d'utiliser pleinement les connaissances apprises tout au long de mes études et notament lors de mon séjour ERASMUS en Espagne.
+En effet, j'ai déjà eu l'opportunité de créer un projet de dévelopement dans le cadre d'une UE "Software engineering" où j'ai pû en apprendre beaucoup sur l'environnement de travail Visual Studio.
+Donc, lorsque j'ai été assigné à la communication
 côté client, je me suis senti très à l'aise avec le code C# généré par Unity.
-Le plus compliqué fut de trouver la manière d'intégrer le framework GRPC sur Unity. En effet, une documentation existe pour le dévelopement avec C# mais pour Unity cela reste experimental.
-J'ai dû dans un premier temps me documenter sur cette intégration notamment en cherchant des exemples de projets/programmes Unity fonctionnant avec GRPC. Thimothée m'a aidé à trouver la commande
-pour générer à partir d'un fichier .proto le code GRPC en C#. A partir de là, il fallait insérer la librairie dans le dossier plugin du programme Unity.
 
-Le développement au fur et à mesure de la communication s'est faite sans grande difficulté. Il a fallut s'adapter au formalisme imposé par le grpc. Une première approche a été d'établir
-les structures de données échangées entre le serveur et le client. Avec Louis Thommann, nous nous sommes donc mis d'accord dès le début pour définir ces spécifications. Le fichier .proto
-devant être unique (Les structures de données et fonctionnalités doivent être les mêmes côté client et serveur), chaque nécessité de modifier ce fichier faisait l'objet d'une concertation
-entre nous deux.
+Le plus compliqué fut de trouver la manière d'intégrer le framework GRPC sur Unity.
+En effet, une documentation existe pour le dévelopement avec C# mais pour Unity cela reste experimental.
+J'ai dû dans un premier temps me documenter sur cette intégration notamment en cherchant des exemples de projets/programmes Unity fonctionnant avec GRPC.
+Timothée m'a aidé à trouver la commande pour générer à partir d'un fichier .proto le code GRPC en C#.
+A partir de là, il fallait insérer la librairie dans le dossier plugin du programme Unity.
 
-Mon travail a aussi été étrois avec les personnes en charges du client. En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devait être d'implémenter leurs besoins
-par rapport au serveur (par exemple: Obtenir les resources actualisés d'un joueur, charger des éléments demandés par le serveur) , mais aussi de faire de la pédagogie en expliquant les limites des
-communications pouvant être établis et les besoins du serveur (exemple: envois des déplacements de npc, Zone et actions non autorisés par le serveur).
-Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur. Une position central dans
-la communication que je trouve très intéressant.
+Le développement au fur et à mesure de la communication s'est faite sans grande difficulté.
+Il a fallut s'adapter au formalisme imposé par le grpc.
+Une première approche a été d'établir
+les structures de données échangées entre le serveur et le client.
+Avec Louis Thommann, nous nous sommes donc mis d'accord dès le début pour définir ces spécifications.
+Le fichier .proto devant être unique (Les structures de données et fonctionnalités doivent être les mêmes côté client et serveur), chaque nécessité de modifier ce fichier faisait l'objet d'une concertation entre nous deux.
+
+Mon travail a aussi été étrois avec les personnes en charges du client.
+En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devait être d'implémenter leurs besoins par rapport au serveur (par exemple: Obtenir les resources actualisés d'un joueur, charger des éléments demandés par le serveur) , mais aussi de faire de la pédagogie en expliquant les limites des communications pouvant être établis et les besoins du serveur (exemple: envois des déplacements de npc, Zone et actions non autorisés par le serveur).
+Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur.
+Une position central dans la communication que je trouve très intéressant.
 
 
 ## Dorian SCHWAMBACH
@@ -533,15 +538,24 @@ Personnellement même si j'adore ce jeu, je n'étais pas totalement pour le choi
 
 ### Choix du langage
 
-Faisant parti de l'équipe serveur, ce projet m'a permis d'apprendre un nouveau langage qui est Golang. Arthur, louis-césar et moi-même avons d'abord voulu utiliser java car nous avons eu des cours utilisant ce langage. Timothée nous a proposer d'utiliser le langage Golang à la place. Après réflexion, nous avons finalement opté pour Golang en raison des différents avantages qu'il comportant par rapport à java tel que la performance, le parallélisme, l'intégration avec Git, la communication avec le client et les tests unitaires. L'apprentissage du langage m'a pris un peu de temps, néanmoins le langage ayant des similitudes avec C, l'apprentissage a été simplifié.
+Faisant parti de l'équipe serveur, ce projet m'a permis d'apprendre un nouveau langage qui est Golang.
+Arthur, louis-césar et moi-même avons d'abord voulu utiliser java car nous avons eu des cours utilisant ce langage.
+Timothée nous a proposer d'utiliser le langage Golang à la place. Après réflexion, nous avons finalement opté pour Golang en raison des différents avantages qu'il comportant par rapport à java tel que la performance, le parallélisme, l'intégration avec Git, la communication avec le client et les tests unitaires.
+L'apprentissage du langage m'a pris un peu de temps, néanmoins le langage ayant des similitudes avec C, l'apprentissage a été simplifié.
 
 ### Domaine de travail
 
-Mon travail s'est principalement porté sur la récolte de ressources, la gestion de l'attaque et les actions de déplacement des PNJ. Ce qui m'a prit le plus de temps fut de corriger les nombreuses data-race qu'ont engendrer ces différentes actions, notamment l'interaction entre ces différentes actions. Pour les identifier, les tests de Golang ainsi que la CI mise en place sur Git m'ont été utiles
+Mon travail s'est principalement porté sur la récolte de ressources, la gestion de l'attaque et les actions de déplacement des PNJ.
+Ce qui m'a prit le plus de temps fut de corriger les nombreuses data-race qu'ont engendrer ces différentes actions, notamment l'interaction entre ces différentes actions.
+Pour les identifier, les tests de Golang ainsi que la CI mise en place sur Git m'ont été utiles
 
 ### Communication
 
-Globalement, la communication fût bonne, je n'ai pas eu de problème pour joindre une personne ou le groupe. Les réunions hebdomadaires ont été très utiles afin d'être au point sur notre avancement et de pouvoir bien fixer les fonctionnalités à produire et éviter que chacun travaille de son côté sans être informé de ce que réalisent les autres et des besoins urgents pour le projet. Néanmoins, il y a eu parfois quelques soucis de communication sur les fonctionnalités à produire. Par exemple, on m'avait dit de réaliser une récolte de ressource automatique alors que finalement il était plus important d'abord d'avoir une récolte de ressource s'effectuant par ciblage. J'ai pour ma part surtout communiqué Arthur qui a su être très réactif si j'avais des commentaires ou des questions sur le projet que ce soit technique ou théorique.
+Globalement, la communication fût bonne, je n'ai pas eu de problème pour joindre une personne ou le groupe.
+Les réunions hebdomadaires ont été très utiles afin d'être au point sur notre avancement et de pouvoir bien fixer les fonctionnalités à produire et éviter que chacun travaille de son côté sans être informé de ce que réalisent les autres et des besoins urgents pour le projet.
+Néanmoins, il y a eu parfois quelques soucis de communication sur les fonctionnalités à produire.
+Par exemple, on m'avait dit de réaliser une récolte de ressource automatique alors que finalement il était plus important d'abord d'avoir une récolte de ressource s'effectuant par ciblage.
+J'ai pour ma part surtout communiqué Arthur qui a su être très réactif si j'avais des commentaires ou des questions sur le projet que ce soit technique ou théorique.
 
 En bref, grâce à ce projet, j'ai pu apprendre un nouveau langage ainsi qu'en apprendre plus sur la réalisation concrète d'un "gros" projet et mettre en pratique mes connaissances acquises lors de la licence
 
@@ -555,7 +569,7 @@ On ne se rend pas compte qu'on communique avec un serveur/client distant.
 J'ai beaucoup apprécié la venue de Louis-César dans l'équipe réseau au mois de mars.
 J'avais pu commencer le développement des fonctions de réponse du serveur, mais le moment de les tester, ce fut la surprise.
 Le C# mettant totalement inconnue, et la compilation du .proto en C# n'étant pas aussi simple qu'en Go, Louis-César nous fut un excellent atout.
-Il a su, avec l'aide de Timothé, comment convertir le .proto de sorte à l'utiliser avec Unity.
+Il a su, avec l'aide de Timothée, comment convertir le .proto de sorte à l'utiliser avec Unity.
 Nous avons beaucoup travaillé ensemble, de sorte à établir un bon protocole de communication.
 
 Une autre personne avec qui j'ai beaucoup travaillé est Arthur.
@@ -570,7 +584,7 @@ En plus de voir son utilisation dans un groupe assez important, j'ai pu comprend
 Je conclurais en disant que le plus grand défi de ce projet, en plus d'arriver à finir ce jeu très ambitieux dans les temps, était de bien s'organiser.
 On peut penser que 2-3 personnes par équipes fonctionnelles dans un projet à 8 c'est peu.
 Mais cela demande déjà une organisation et une logistique impossible à négliger.
-Nous avons pu compter sur le regard de Timothé pour nous proposer des technologies intéressantes.
+Nous avons pu compter sur le regard de Timothée pour nous proposer des technologies intéressantes.
 Il a aussi réalisé des tests d'intégration continue qui ont aussi été un grand défi lors des "Milestone".
 Ce projet laisse un souvenir indélébile d'une première expérience de développement dans une équipe.
 
