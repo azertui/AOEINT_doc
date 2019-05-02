@@ -6,7 +6,7 @@ Il s'agit de créer un jeu multijoueur en temps réel, reprenant un jeux des ann
 
 # Contexte
 
-Les CMI en option Imagerie ont été amenés à utiliser un moteur de jeu 3D, ici Unity, lors d'un projet au semestre 5. 
+Les CMI en option Imagerie ont été amenés à utiliser un moteur de jeu 3D, ici Unity, lors d'un projet au semestre 5.
 Cette matière a permis d'approcer l'utilisation de scripts et la manipulation de l'interface de Unity. Ces connaissance préalables ont permis d'aborder plus rapidement la conception du jeu, ainsi de connaître la solutions à certains problèmes auxquels ils auraient pu faire face auparavant.
 En choisissant d'utiliser Unity plutôt qu'un moteur de jeu inconnu des CMI Image du groupe, il a été posible d'avancer plus vite dans l'ensemble de la conception du jeu.
 
@@ -55,7 +55,7 @@ Nous avons décidé de choisir la réalistion d'une API GraphQL afin de se conne
 
 #### GraphQL
 
-GraphQL est un language créé par Facebook. 
+GraphQL est un language créé par Facebook.
 Même si REST (Representational State Tranfer) demeure le format standart des API, certains développeurs décident de se tourner vers GraphQL pour combler leslacunes majeures de ce format.
 Contrairement à REST, et son modèle relativement structuré basé sur les ressources, GraphQL intervient avc une approche plus flexible : on crée un schéma de requête, puis le serveur l'analyse et renvoie les informations demandées.
 De plus, l'utilisation du projet "Apollo Server" permet de monter une API GraphQL très simplement et rapidement.
@@ -184,19 +184,37 @@ Cela permet d'intégrer les features au fur et à mesure et d'avancer par itéra
 
 # Deploiement
 
+La phase de deployement conventionel peut être compliqué et demander des manipulations spécifique pour metre à jour un service.
+Nous avons décidé d'intégré nos service dans un cloud privée en conteneurisant nos services dans des conteneurs.
+
 ## Kubernetes
+
+Kubernetes est un orchestrateur de conteneur.
+Grace aux api de kubernetes, il est facile d'augmenter la charge de calcul, gagner en redondance et réduire le taux de panne.
+Kubernetes est aussi penser pour faciliter l'intégration continu, il est très facile de metre à jour des service sur un nombre de serveur infini.
 
 ## HA
 
+La Haute disponibilité permet un taux de panne proche de 0.
+Pour ce faire, nous augmentant le nombre de serveurs physiques, nous générons plusieurs instances de chaque service sur les différents noeuds.
+Nous profitons d'un système de stockage redondant reduisant le risque de perdre des données.
+
 ## Montée en charge
 
-
+A terme grace aux outils cités précédément, notre infrastructure permetra d'automatiquement ajuster le nombre de noeuds de chaque service pour répondre à des montés en charge.
 
 # Test
 
+Nous avons essayé d'intégrer un maximum de test unitaire pour détecter et corriger un maximum d'erreurs.
+Cela nous permet de gagner du temps en s'investissant moins dans la recherche de bugs.
+
 ## Go test
 
+L'un des avantages de go et l'outils go test, il permet de lancer très facilement nos tests unitaires.
+
 ### Data race
+
+L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
 
 
