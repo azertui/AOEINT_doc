@@ -89,6 +89,7 @@ Nous avons du faire des compromis pour que tous le monde puisse progresser dans 
 Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
 JAVA étant lourd et en voie d'extinction, Pyhton et GO étaient les deux choix restants.
 Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages suivant:
+
 - d'être compilable
 - d'intégrer des outils de test
 - d'intégrer une gestion des dépendances
@@ -224,8 +225,6 @@ Elle est également en charge du dévelopement des API.
 Louis T la composait à l'alpha avec le support de Tim, puis Louis Cesar le rejoigna pour booster le developement du client.
 Le framework utilisé pour établir cette communication est "GRPC" entre l'instance de jeu et le client.
 
-
-
 ## Répartition des taches
 
 La répartition des taches se fait grâce à gitlab, les issues sont créés et attribué ou choisi par les personnes disponibles.
@@ -302,9 +301,8 @@ Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des inform
 Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisés de manière générique pour les 2 langages. Les modifications de ce fichier
 implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
 
-Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
+Dans le dossier utilisé pour Unity, il faut insérer dans le dossier "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
 issus du fichier .proto
-
 
 ### Deplacement (move to)
 
@@ -324,7 +322,6 @@ Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie 
 #### JWT
 
 ![JWT](images/jwt.png)
-
 
 L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
 
@@ -385,21 +382,45 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 ## Timothée Oliger
 
-Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
-jeux.
+Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce jeu.
+
+Etant chef de projet durant ce projet, j'ai essayé de faire profiter de mon expérience pour proposer des solutions et des bonnes pratiques qui je l'espère ont améliorés la qualité du projet.
+Cependant je pense que le projet n'a pas évolué de façon continu et malheuresement certaines personnes n'ont pas joués le jeu de la micro organisation.
+Au lieu d'exposer leurs discussions techniques sur gitlab,  certains utilisaient les messages privées puis prenaient des initatives non consenti.
+Cela à entrainé des contre-temps liés à des modifications de spécifications sans concertation et de modules inutiles, entrainant des tempêtes de bugs.
+Cela peut s'expliquer par un manque de pratiques et des explications pas toujours clair, peut être aussi par un manque de temps / investissement.
+
+Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
+
+J'ai également pu me perfectioner en:
+- déployant le système de CI / CD
+- deployant les services grâce à kubernetes
+- adaptater les services au cloud
+- Implémenter le système d'authentification
+- apporter du soutient logistique pour configurer les systèmes de l'équipe
+- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
+
+Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
+
+Pour conclure, globalement ce projet s'est bien dérouler mais l'hétérogénéité entre les membres à compliquer le déroulement du projet, par ailleurs je trouve que des membres se sont démenés pour finir ce projet et ont enormement progréssé dans leurs domaines.
+Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et motivations est très difficile, je pense après reflexions que nous avons choisi quelquechose de trop ambitieux.
+
+J'ajoute que la création d'un registry gitlab serait bénéfique pour les années futures.
+Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, deploiement).
 
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
 En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalités qui finalement n'ont pas été utilisées, mises de
-côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi 
+côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi
 grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
-Ma partie a été centrée sur plusieurs points :  
+Ma partie a été centrée sur plusieurs points :
+
 - les fonctions de créations des différentes entitées à des positions précises.
 - les pages de connexion avec l'appel à l'api
 - la gestion de déplacement de toutes les entités sur la carte
-- les sons 
+- les sons
 
 Unity m'a vraiment aidé surtout sur la partie Déplacement des entités car il existe des fonctionnalités très efficaces nativement incluses.
 
@@ -414,7 +435,6 @@ pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 ## Monfouga Marie
 
 Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci. Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres. La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity. Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits. Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.
-
 
 # Conclusion
 
