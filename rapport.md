@@ -447,7 +447,7 @@ Pendant le dévelopement je me suis principalement concentrée sur
 * le placement des bâtiments et la demande de création de Npc ainsi que la gestion des ressources
 * le brouillard permettant de ne pas voir toute la carte dès le début
 
-Mon but lors de l'implémentation de ces diverses fonctionnalités a été de les rendre les plus complètes possibles. En partant d'une idée de fonction, chercher une implémentation possible puis un maximum d'améliorations a parfois été délicat. Pour le brouillard par exemple, il m'a fallu faire des recherches sur les outils d'Unity qui me permettait de le réalier facilement. Une fois trouvée un système de grille j'ai du prendre en main ce nouvel élément et l'associer correctement au travail existant.
+Mon but lors de l'implémentation de ces diverses fonctionnalités a été de les rendre les plus complètes possibles. En partant d'une idée de fonction, chercher une implémentation possible puis un maximum d'améliorations a parfois été délicat. Pour le brouillard par exemple, il m'a fallu faire des recherches sur les outils d'Unity qui me permettait de le réalier facilement. J'ai ainsi trouvé un système de grille que j'ai ensuite du prendre en main afin de l'associer correctement à notre travail existant.
 
 La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity.
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
