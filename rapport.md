@@ -232,6 +232,17 @@ La répartition des taches se fait grâce à gitlab, les issues sont créés et 
 Ce système permet de d'attribuer des taches correspondantes aux personnes augmentant ainsi la productivité.
 les bugs bloquant le developement des features en cours de dévelopement sont misent en priorité.
 
+### Planification
+
+Pour planifier le projet nous avons séparer le dévelopement en 4 phases.
+[milestone](images/miles.png)
+
+Comme nous travaillant de façon itérative, des issues évidente ont tout d'abord était ajouter à chaque étapes, puis la création des issues s'est faite à chaques itérations pour être le plus précis, cohérent et productif possible.
+
+Voici l'etat de la plafinication gantt à ce jour:
+[gantt client](images/gantt_client_now.png)
+[gantt serveur](images/gantt_server_now.png)
+
 ### Gitlab
 
 L'utilisation de gitlab est très agréable, contrairement à github, la version gratuite contient un large pannel de fonctionnabilités.
