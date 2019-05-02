@@ -445,11 +445,13 @@ Pendant le dévelopement je me suis principalement concentrée sur
 * la vision du joueur de l'environment, c'est à dire la position de la caméra et ses déplacements par le biais du clavier ou de la souris
 * le placement des bâtiments et la demande de création de Npc ainsi que la gestion des ressources
 * le brouillard permettant de ne pas voir toute la carte dès le début
-Mon but lors de l'implémentation de ces diverses fonctionnalités a été de les rendre les plus complètes possibles
+Mon but lors de l'implémentation de ces diverses fonctionnalités a été de les rendre les plus complètes possibles. En partant d'une idée de fonction, chercher une implémentation possible puis un maximum d'améliorations a parfois été délicat. Pour le brouillard par exemple, il m'a fallu faire des recherches sur les outils d'Unity qui me permettait de le réalier facilement. Une fois trouvée un système de grille j'ai du prendre en main ce nouvel élément et l'associer correctement au travail existant.    
 
 La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity.
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
 Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres et à s'accorder avec l'équipe serveur.
+
+
 
 ## Louis-César Pagès
 
