@@ -235,13 +235,13 @@ les bugs bloquant le developement des features en cours de dévelopement sont mi
 ### Planification
 
 Pour planifier le projet nous avons séparer le dévelopement en 4 phases.
-[milestone](images/miles.png)
+![milestone](images/miles.png)
 
 Comme nous travaillant de façon itérative, des issues évidente ont tout d'abord était ajouter à chaque étapes, puis la création des issues s'est faite à chaques itérations pour être le plus précis, cohérent et productif possible.
 
 Voici l'etat de la plafinication gantt à ce jour:
-[gantt client](images/gantt_client_now.png)
-[gantt serveur](images/gantt_server_now.png)
+![gantt client](images/gantt_client_now.png)
+![gantt serveur](images/gantt_server_now.png)
 
 ### Gitlab
 
