@@ -308,16 +308,11 @@ issus du fichier .proto
 
 ### Deplacement (move to)
 
-Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les batiments ou les ressources présentes.
-Tout d'abord, le chemin à suivre est calculé par le serveur.
-Pour celà, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connait ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
+Arthur
 
 ### UI
 
-![UI](images/UI.png)
-On a essayé pour l'UI de rester proche de l'aspect de l'original tout en restant simple à prendre en main.
-On affiche en bas à gauche les ressources du joueur en bois, pierre et nourriture.
-Au milieu apparait une image du type d'objet sélectionné ainsi que son nom. Lorsque l'on sélectionne plusieurs unités leur nombre est également indiqué. A droite apparait un bouton avec une maison qui permet de faire apparaitre une liste de bâtiments constructibles. Ceux ci sont grisés si les ressources sont insuffisantes pour la production.
+Marie
 
 ### Authentification
 
@@ -393,30 +388,30 @@ jeux.
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
-En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalités qui finalement n'ont pas été utilisées, mises de
+En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalitées qui finalement n'ont pas été utilisées, mises de
 côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi 
-grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
-
-Ma partie a été centrée sur plusieurs points :  
-- les fonctions de créations des différentes entitées à des positions précises.
-- les pages de connexion avec l'appel à l'api
-- la gestion de déplacement de toutes les entités sur la carte
-- les sons 
-
-Unity m'a vraiment aidé surtout sur la partie Déplacement des entités car il existe des fonctionnalités très efficaces nativement incluses.
-
-En ce qui concerne le choix du jeu j'étais contre un RTS (surtout Age of Empire) car ce style de jeux est très complex à prendre en main et donc encore plus à réaliser à la vue de toutes les fonctionnalités à prendre en compte.
-Nous avons du limiter notre jeu au strict minimum pour avoir quelque chose de jouable ce qui à mon avis n'est pas la meilleure stratégie pour un premier projet d'une telle ampleur.
-C'est pour cela que j'aurais préféré partir sur un jeu plus accessible comme "Bomberman" qui est plus facile à réaliser et à personnaliser.
-
-Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity, sur le modèle client / serveur, sur la cohésion de groupe ou alors sur d'autres choses comme l'utilisation d'une
-API ou sur les protocoles de communications etc ... qui m'étaient jusqu'à présent inconnus. Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et
-pour avoir la satisfaction de terminer correctement ce qui à été commencé.
+grosse séparation client / serveur contrairement au jeu développer durant l'UE "Moteur de Jeux 3D".
 
 ## Monfouga Marie
 
-Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci. Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres. La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity. Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits. Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.
+Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci. Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres. La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity. Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits. Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.  
 
+##Louis-César Pagès
+Ce projet m'a permis d'utiliser pleinement les connaissances apprise tout au long de mes études et notament lors de mon séjour ERASMUS en Espagne. En effet, j'ai déjà eu l'opportunité de créer
+un projet de dévelopement dans le cadre d'une UE "Software engineering" où pû en apprendre beaucoup sur l'environnement de travail Visual Studio. Donc, lorsque j'ai été assigné à la communication
+côté client, je me suis senti très à l'aise avec le code C# généré par Unity. 
+Le plus compliqué fut de trouver la manière d'intégrer le framework GRPC sur Unity. En effet, une documentation existe pour le dévelopement avec C# mais pour Unity cela reste experimental. 
+J'ai dû dans un premier temps me documenter sur cette intégration notamment en cherchant des exemples de projets/programmes Unity fonctionnant avec GRPC. Thimothée m'a aidé à trouver la commande
+pour générer à partir d'un fichier .proto le code GRPC en C#. A partir de là, il fallait insérer la librairie dans le dossier plugin du programme Unity. 
+Le développement au fur et à mesure de la communication s'est faite sans grande difficulté. Il a fallut s'adapter au formalisme imposé par le grpc. Une première approche fût d'établir
+les structures de données échangées entre le serveur et le client. Avec Louis Thommann, nous nous sommes donc mis d'accord dès le début pour définir ces spécification. Le fichier .proto
+devant être unique (Les structures de données et fonctionnalités doivent être les mêmes côté client et serveur), chaque nécessité de modifier ce fichier faisait l'objet d'une concertation 
+entre nous deux. 
+Mon travail a aussi été étrois avec les personnes en charges du client. En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devait être d'implémenter leurs besoins 
+par rapport au serveur (par exemple: Obtenir les resources actualisés d'un joueur, charger des éléments demandés par le serveur) , mais aussi de faire de la pédagogie en expliquant les limites des 
+communications pouvant être établis et les besoins du serveur (exemple: envois des déplacements de npc, Zone et actions non autorisés par le serveur). 
+Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur. Une position central dans 
+la communication que je trouve très intéressant. 
 
 # Conclusion
 
