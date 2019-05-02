@@ -126,6 +126,8 @@ L'utilisation de gitlab est très agréable, contrairement à github, la version
 #### Issues
 
 Les issues nous permettent de demander des features et de déclarer qu'on travail sur une feature.
+Le gros problèmes que nous avons rencontré par rapport aux issues est qu'au début du projet certaines issues se faisaient sur le long thermes ou alors d'autres issues imprévues
+auxquelles on avait pas pensé sont apparues au fil de l'avancement du projet.
 
 #### Pull request
 
@@ -134,11 +136,12 @@ Elle est validée après un test effectué par un membre et après avoir passé 
 
 ## Discussions
 
-Les issues sont fort pratique, hélas pour des petites question technique il est utilise d'utiliser de la communication sous forme de chat.
+Les issues sont fort pratique, hélas pour des petites question technique il est utile d'utiliser de la communication sous forme de chat qui n'est pas le cas du système
+de discussion directement intégré aux issues.
 
 ### Discord
 
-Nous avons choisi discord comme logiciel de chat car il permet de faire des groupes d'utilisateurs et différents salons textuel et vocaux.
+Nous avons choisi discord comme logiciel de chat. En plus d'être gratuit il permet de faire des groupes d'utilisateurs et différents salons textuel et vocaux.
 
 ## CI / CD
 
@@ -160,12 +163,11 @@ Dockercloud n'est pas compatible avec gitlab, pour pouvoir profiter de la ci il 
 
 # Developement
 
-Le developement à était compliqué par le faite que tous le monde à un OS différent.
+Le fait que tout le monde ne travaillait pas sous le même OS, le developpement à posé quelques soucis en début de projet.
 
 ## S'adapter aux configs
 
-Il a falu des heures de labeur pour installer go, unity et des dépendances sur chaques machines.
-
+Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
 ## docker
 
@@ -174,12 +176,12 @@ Par ailleurs cela à était long et plusieurs personnes ont du passer de windows
 
 ## git
 
-Pour developer, l'utilisation de git est obligatoire parce que c'est bien
+Pour developer, l'utilisation de git semblait évidente.
 
 ### branches
 
-Pour le pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
-branches indépendantes
+Pour ne pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
+branches indépendantes excepté pour l'équipe front.
 
 #### b -> develop
 
