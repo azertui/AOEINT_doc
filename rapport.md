@@ -59,6 +59,7 @@ Stephane \textsc{Cateloin}
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
 Il s'agit de créer un jeu multijoueur en temps réel, reprenant un jeux des années 1980-1990.
+Il est entièrement open source les modules sont disponible sur le[git](https://git.unistra.fr/AOEINT/) le l'unistra.
 
 # Contexte
 
@@ -151,9 +152,8 @@ Ce Service permet de calculer le niveaux de chaque joueur, il exploite pour cela
 
 #### Ligues
 
-Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la
-ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à
-terminer dans la ligue qu'il lui correpond
+Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à terminer dans la ligue qu'il lui correspond.
+Cette API n'a pas encore développer car elle est d'une priorité basse.
 
 #### Avantages
 
@@ -167,6 +167,9 @@ A l'heure actuelle, nous l'avons pas pu l'implementer car c'est un module non ne
 ### API de gestion des parties
 
 Ce service permet de rejoindre des partie, obtenir des informations sur les parties comme la composition des équipes.
+Cela permet à une instance de partie de savoir si les joueurs qui souhaitent intéragir avec la partie appartiennent bien à la partie.
+A terme cette API pourra créer à la volée des instances de partie.
+A l'heure actuelle cette API n'est pas terminée mais elle devrait aparaitre en fin de semaine.
 
 ### Instance de partie
 
@@ -234,6 +237,17 @@ La répartition des taches se fait grâce à gitlab, les issues sont créés et 
 Ce système permet de d'attribuer des taches correspondantes aux personnes augmentant ainsi la productivité.
 les bugs bloquant le developement des features en cours de dévelopement sont misent en priorité.
 
+## Planification
+
+Pour planifier le projet nous avons séparer le dévelopement en 4 phases.
+![milestone](images/miles.png)
+
+Comme nous travaillant de façon itérative, des issues évidente ont tout d'abord était ajouter à chaque étapes, puis la création des issues s'est faite à chaques itérations pour être le plus précis, cohérent et productif possible.
+
+Voici l'etat de la plafinication gantt à ce jour:
+![gantt client](images/gantt_client_now.png)
+![gantt serveur](images/gantt_server_now.png)
+
 ### Gitlab
 
 L'utilisation de gitlab est très agréable, contrairement à github, la version gratuite contient un large pannel de fonctionnabilités.
@@ -280,7 +294,7 @@ Dockercloud n'est pas compatible avec gitlab, pour pouvoir profiter de la ci il 
 
 Le fait que tout le monde ne travaillait pas sous le même OS, le developpement à posé quelques soucis en début de projet.
 
-## S'adapter aux configs
+## S'adapter aux configurations
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
@@ -331,22 +345,35 @@ Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie 
 
 ![JWT](images/jwt.png)
 
+Un JWT est composé de trois partie séparées par des points, un header qui définit qu'elle est la technologie de chiffrage, un payload contenant les informations "payload" et enfin la signature vérifiant l'intégrité du JWT dans son ensemble.
+
+Nous avons choisi d'utiliser le JWT pour authentifier chaque communication (instance <-> API, client <-> instance, client <-> API) car c'est une authentification stateless.
+C'est à dire que dès qu'il est générer, il n'y a que besoin de la clé publique pour le vérifier, cela permet d'isoler la base de donnée utilisateur augmentant ainsi la sécurité.
+De plus c'est un gain significatif de performance, car une fois générer, il ne faut que une faible puissance de calcul pour vérifier l'authentification.
+
+C'est à dire que dans le payload on rajoute un champs timeout qui n'est rien d'autre qu'un timestamp, comme le JWT est "inviolable", si le timestamp est plus ancien qu'a la date de vérification, il devient faux et ne donne plus aucuns droits, il faut alors le regénérer.
 
 L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
 
 ## docker
 
 Pour palier à ce problème, l'utilisation de docker à permis de faciliter le dévelopement.
-Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro.
+En effet grace aux scripts présents dans les dossiers git des modules, il est très rapidement et simplement possiblede créer des conteneurs faisant tourner les services.
+Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro car docker necessite des modules de virtualisation.
 
 ## git
 
 Pour developer, l'utilisation de git semblait évidente.
+Il n'y a pas vraiment eut de debat entre git et svn car git est accepter et compris par tous les
+membres de l'équipe.
 
 ### branches
 
 Pour ne pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
 branches indépendantes excepté pour l'équipe front.
+En effet comme unity dispose de son propre système de colaboration contrairement à godot, il est très difficile de travailler chaqu'un de son coté puis merge.
+Il en devient casiment impossible lorsque différentes branches deviennent très éloignées.
+De plus pour éviter des merges non maitrisé, Nous avons du faire un compromis en travaillant directement tous ensemble sur la branche develop puis de merge les versions stables dans la branche master.
 
 #### b -> develop
 
