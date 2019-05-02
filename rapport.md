@@ -87,9 +87,9 @@ Nous avons du faire des compromis pour que tous le monde puisse progresser dans 
 
 ### Langage de programmation
 
-Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
-JAVA étant lourd et en voie d'extinction, Pyhton et GO étaient les deux choix restants.
-Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages suivant:
+Pour l'instance de jeu, nous avons hésité entre JAVA, Python et Go.
+JAVA étant lourd et en voie d'extinction, Pyhton et Go étaient les deux choix restants.
+Après discussion Go nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages suivant:
 - d'être compilable
 - d'intégrer des outils de test
 - d'intégrer une gestion des dépendances
@@ -173,7 +173,7 @@ A l'heure actuelle cette API n'est pas terminée mais elle devrait aparaitre en 
 
 ### Instance de partie
 
-Les instances de partie sont écritent en GO et conteneuriser comme les autres services grace à docker.
+Les instances de partie sont écritent en Go et conteneuriser comme les autres services grace à docker.
 Cela permetra à terme de générer une partie à la demande et de la supprimer facilement.
 
 ### Client
@@ -296,7 +296,7 @@ Le fait que tout le monde ne travaillait pas sous le même OS, le developpement 
 
 ## S'adapter aux configurations
 
-Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
+Il a falu faire du cas par cas afin d'installer Go, unity et des dépendances sur chaques machines.
 
 ## Client
 
@@ -309,17 +309,24 @@ Les objectif de ce module, et d'intéger un système d'authentification et le je
 
 ### GRPC
 
-Cette librairie permet d'établir une communication stable reposant sur les standards HTTP/2. Cette technologie
-a été retenu car elle peut être utilisée pour plusieurs langages de développement et est facilement intégrable au code source.
-Plusieurs services peuvent être implémentés et générer dans le langage cible voulu à partir d'un fichier .proto . C'est services doivent
-être décrites dans ce fichier pour être ensuite interprétés par le compilateur protoc. Un code va être généré à l'aide de ce fichier contenant
-l'équivalence des services spécifiées écrits en langage cible.
-Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des informations de manière transparente lors du dévelopement du jeu.
-Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisés de manière générique pour les 2 langages. Les modifications de ce fichier
-implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
+Cette librairie permet d'établir une communication stable reposant sur les standards HTTP/2.
+Cette technologie a été retenue car elle peut être utilisée pour plusieurs langages de développement et est facilement intégrable au code source.
+Plusieurs services peuvent être implémentés et générer dans le langage cible voulu à partir d'un fichier .proto.
+Ces services doivent être décrits dans ce fichier pour être ensuite interprétés par le compilateur protoc.
+Un code va être généré à l'aide de ce fichier contenant l'équivalence des services spécifiés écrits en langage cible.
+Ainsi, les fonctions/classes créées permettent de récupérer/envoyer des informations de manière transparente lors du développement du jeu.
 
-Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
-issus du fichier .proto
+Le fichier .proto doit être le même pour code GRPC Go et GRPC C#.
+Ainsi, les services doivent être formalisés de manière générique pour les 2 langages.
+Les modifications de ce fichier impliquent qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisée.
+
+Dans l'utilisation avec Unity, il faut d'abord insérer dans le dossier "Assets/Plugin" les éléments du Framework GRPC.
+Ceux-ci vont permettre d'interpréter les services écrits dans le langage cible issu du fichier .proto.
+Après import, il suffit de paramétrer le contexte de connexion GRPC pour ensuite appeler les fonctions de communication.
+
+Dans l'utilisation avec Go, il suffisait d'inclure le fichier généré pour appeler les fonctions d'écoute du service GRPC.
+Les fonctions implémentées pour GRPC doivent juste respecter un prototype.
+Elle était ensuite utilisée par pointeur de fonction par le serveur d'écoute GRPC.
 
 
 ### Deplacement (move to)
@@ -408,11 +415,11 @@ Cela nous permet de gagner du temps en s'investissant moins dans la recherche de
 
 ## Go test
 
-L'un des avantages de go et l'outils go test, il permet de lancer très facilement nos tests unitaires.
+L'un des avantages de Go et l'outils `go test`, il permet de lancer très facilement nos tests unitaires.
 
 ### Data race
 
-L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
+L'outil `go test` permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
 # Partie Personnel
 
@@ -434,7 +441,7 @@ J'ai également pu me perfectioner en:
 - adaptater les services au cloud
 - Implémenter le système d'authentification
 - apporter du soutient logistique pour configurer les systèmes de l'équipe
-- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
+- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, Go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
 
 Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
 
