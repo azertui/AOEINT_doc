@@ -55,6 +55,8 @@ Stephane \textsc{Cateloin}
 
 \tableofcontents
 
+\newpage
+
 # Introduction
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
@@ -416,6 +418,8 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 # Partie Personnel
 
+\newpage
+
 ## Timothée Oliger
 
 Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce jeu.
@@ -444,6 +448,8 @@ Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et mo
 J'ajoute que la création d'un registry gitlab serait bénéfique pour les années futures.
 Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, deploiement).
 
+\newpage
+
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
@@ -465,6 +471,8 @@ C'est pour cela que j'aurais préféré partir sur un jeu plus accessible comme 
 Outre cela, ce projet ma tout de même appris énormément que se soit sur Unity, sur le modèle client / serveur, sur la cohésion de groupe ou alors sur d'autres choses comme l'utilisation d'une API ou sur les protocoles de communications, etc... qui m'étaient jusqu'à présent inconnus.
 Je continuerais surement à améliorer ce projet par la suite pour voir jusqu'où aurions nous pu aller avec un peu plus de temps et pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
+\newpage
+
 ## Chloé Riche
 
 Un projet avec autant de personnes impliquées à été une réelle découverte pour moi, autant sur la communication entre les personnes que sur la séparation des tâches, plus marquée que sur un plus petit projet.
@@ -484,6 +492,8 @@ Mes différentes tâches dans le jeu sont regroupées dans cette liste non exhau
 
 J'ai tenté de mettre au maximum à profit mon expérience dans le domaine de l'image et du design graphique, afin de proposer un expérience client agréable et cohérente avec l'univers que nous avons souhaité développer.
 
+\newpage
+
 ## Monfouga Marie
 
 Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. J'ai aussi pu découvrir ce qu'était de travailler sur un projet avec un grand groupe et des parties à réaliser bien distinctes.
@@ -502,6 +512,8 @@ La partie la plus difficile au commencement était la mise en commun de nos modi
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
 Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres et à s'accorder avec l'équipe serveur.
 
+\newpage
+
 ## Rauch Arthur
 
 Développer Tiny Empire était une expérience intéressante, notamment au niveau de l'organisation du projet et de la répartition du travail, tâches devenues bien plus importantes que lors de plus petits projets effectués auparavant.
@@ -513,6 +525,8 @@ Il était nécessaire pour celà d'établir dès la création des premiers proto
 C'est ainsi que furent créés deux buffers correspondant respectivement aux différents types d'informations utiles à transmettre par GRPC et un tableau d'identification unique des différentes instances d'objets de la partie en cours.
 J'ai également réalisé les premières versions des algorithmes de déplacement d'entités ainsi que l'algorithme de pathfinding par matrice de poids et veillé à la bonne compréhension des convensions adoptées lors de nos réunions afin de toujours maintenir le fonctionnement interne d'une partie sur serveur compatible avec son exécution par le client.
 La résolution des problèmes de concurrence s'est révélé être le problème le plus ardu auquel je fus confronté, celui-ci évoluant au cours de nouvelles utilisations auparavant imprévues des différents objets et nécessitant constamment de nouvelles solutions, telles que l'utilisation de channels et d'autres systèmes de blocage ou de communication avec attente passive. Afin d'être sûr de résourdre cette problème et de maintenir la cohésion lors de la réunion de différents travaux, il a fallu que je m'informe en permanence des dernières résolutions de mes collaborateurs et que je travaille réellement de concert avec eux, ce qui me plut beaucoup.
+
+\newpage
 
 ## Louis-César Pagès
 
@@ -539,6 +553,7 @@ En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devai
 Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur.
 Une position central dans la communication que je trouve très intéressant.
 
+\newpage
 
 ## Dorian SCHWAMBACH
 
