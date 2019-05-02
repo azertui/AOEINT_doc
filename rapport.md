@@ -24,6 +24,7 @@ Timothée \textsc{Oliger}\\
 Adrien \textsc{Ossywa}\\
 Marie \textsc{Monfouga}\\
 Louis-César \textsc{Pagès}\\
+Dorian \textsc{Schwambach}\\
 \end{flushleft}
 \end{minipage}
 ~
