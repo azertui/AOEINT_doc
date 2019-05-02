@@ -416,15 +416,38 @@ API ou sur les protocoles de communications etc ... qui m'étaient jusqu'à pré
 pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
 
+Un projet avec autant de personnes impliquées à été une réelle découverte pour moi, autant sur la communication entre les personnes que sur la séparation des tâches, plus marquée que sur un plus petit projet.
+Je n'avais jamais travaillé avec des protocoles de communication ou encore une équipe entièrement réseau : nous avons donc du apprendre à être clairs dans nos réunions et processus de travail, même avec des personnes qui ne connaissent pas les outils avec lesquels nous travaillons. Lorsque ce n'était pas le cas, certaines personnes se retrouvaient à coder des fonctions déjà programmées ou à utiliser des prototypes non existants par exemple.
+
+Réaliser un projet de plus grande ampleur sur Unity m'a bien sûr permis de développer mes capacités sur ce moteur de jeu, autant en programmation C# qu'en manipulation de l'interface graphique. Je n'avais jamais eu à créer d'UI aussi importante auparavant.
+
+S'impliquer dans la décision du jeu a été difficile pour moi, étant donné que je n'avais pas idée de la quantité de travail impliquée par les différentes propositions. Je pense que nous sommes pour la plupart d'accord sur le fait que un "Age Of Empire" - like est un pari probablement trop ambitieux pour le temps qui nous a été donné, cependant je suis quand même réjouie de voir les progrès que nous avons réalisé depuis le commencement.
+
+Mes différentes tâches dans le jeu sont regroupées dans cette liste non exhaustive :
+
+* implémentation de la sélection des unités, bâtiments et ressources selon les conditions respectives à appliquer (multi-selection pour les unités notamment)
+* le développement de l'UX/UI via des wireframes et ensuite sur Unity
+* modélisation des bâtiments sur Autodesk Maya et intégration dans Unity
+* réalisation du logo du jeu
+* réalisation du document de communication
+
+J'ai tenté de mettre au maximum à profit mon expérience dans le domaine de l'image et du design graphique, afin de proposer un expérience client agréable et cohérente avec l'univers que nous avons souhaité développer.
 ## Monfouga Marie
 
-Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel.
+Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. J'ai aussi pu découvrir ce qu'était de travailler sur un projet avec un grand groupe et des parties à réaliser bien distinctes.
+
 Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci.
 
-Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres.
+Pendant le dévelopement je me suis principalement concentrée sur
+* la disposition et le choix des éléments de l'UI ainsi que l'interaction entre l'UI et le joueur
+* la vision du joueur de l'environment, c'est à dire la position de la caméra et ses déplacements par le biais du clavier ou de la souris
+* le placement des bâtiments et la demande de création de Npc ainsi que la gestion des ressources
+* le brouillard permettant de ne pas voir toute la carte dès le début
+Mon but lors de l'implémentation de ces diverses fonctionnalités a été de les rendre les plus complètes possibles
+
 La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity.
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
-Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.
+Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres et à s'accorder avec l'équipe serveur.
 
 ## Louis-César Pagès
 
