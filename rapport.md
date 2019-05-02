@@ -166,6 +166,8 @@ A l'heure actuelle, nous l'avons pas pu l'implementer car c'est un module non ne
 ### API de gestion des parties
 
 Ce service permet de rejoindre des partie, obtenir des informations sur les parties comme la composition des équipes.
+Cela permet à une instance de partie de savoir si les joueurs qui souhaitent intéragir avec la partie appartiennent bien à la partie.
+A terme cette API pourra créer à la volée des instances de partie.
 A l'heure actuelle cette API n'est pas terminée mais elle devrait aparaitre en fin de semaine.
 
 ### Instance de partie
@@ -339,21 +341,36 @@ Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie 
 
 ![JWT](images/jwt.png)
 
+Un JWT est composé de trois partie séparées par des points, un header qui définit qu'elle est la technologie de chiffrage, un payload contenant les informations "payload" et enfin la signature vérifiant l'intégrité du JWT dans son ensemble.
+
+Nous avons choisi d'utiliser le JWT pour authentifier chaque communication (instance <-> API, client <-> instance, client <-> API) car c'est une authentification stateless.
+C'est à dire que dès qu'il est générer, il n'y a que besoin de la clé publique pour le vérifier, cela permet d'isoler la base de donnée utilisateur augmentant ainsi la sécurité.
+De plus c'est un gain significatif de performance, car une fois générer, il ne faut que une faible puissance de calcul pour vérifier l'authentification.
+
+C'est à dire que dans le payload on rajoute un champs timeout qui n'est rien d'autre qu'un timestamp, comme le JWT est "inviolable", si le timestamp est plus ancien qu'a la date de vérification, il devient faux et ne donne plus aucuns droits, il faut alors le regénérer.
+
 L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
+
 
 ## docker
 
 Pour palier à ce problème, l'utilisation de docker à permis de faciliter le dévelopement.
-Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro.
+En effet grace aux scripts présents dans les dossiers git des modules, il est très rapidement et simplement possiblede créer des conteneurs faisant tourner les services.
+Par ailleurs cela à était long et plusieurs personnes ont du passer de windows familial à windows pro car docker necessite des modules de virtualisation.
 
 ## git
 
 Pour developer, l'utilisation de git semblait évidente.
+Il n'y a pas vraiment eut de debat entre git et svn car git est accepter et compris par tous les
+membres de l'équipe.
 
 ### branches
 
 Pour ne pas se marcher dessus et travailler en parallèle chaque feature était déveloper sur des
 branches indépendantes excepté pour l'équipe front.
+En effet comme unity dispose de son propre système de colaboration contrairement à godot, il est très difficile de travailler chaqu'un de son coté puis merge.
+Il en devient casiment impossible lorsque différentes branches deviennent très éloignées.
+De plus pour éviter des merges non maitrisé, Nous avons du faire un compromis en travaillant directement tous ensemble sur la branche develop puis de merge les versions stables dans la branche master.
 
 #### b -> develop
 
