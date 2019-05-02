@@ -300,28 +300,6 @@ Le fait que tout le monde ne travaillait pas sous le même OS, le developpement 
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
-## Explication de certaines fonctionnalités du jeu
-
-### Deplacement (move to)
-
-Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les bâtiments ou les ressources présentes.
-Tout d'abord, le chemin à suivre est calculé par le serveur.
-Pour cela, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connaît ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
-
-### Récolte de ressources
-
-Il existe deux méthodes de récolte, la récolte de ressource par ciblage et celle se réalisant automatiquement, la deuxième n'étant pas sur d'être implémentée.
-Les deux unité pouvant récolter des ressources sont les villageois et les harvesters
--Le joueur sélectionne une ou plusieurs unités pouvant récolter des ressources puis clique sur une ressource. Le unité va se déplacer vers la case la plus proche et n'étant pas obstruée lui permettant d'être à portée de récolte. S'il n'existe pas de chemin possible pour accéder à la ressource ou que toutes les cases permettant d'être à portée de la ressource sont obstrués, le clic sur la ressource ne fera pas déplacer le unité. Lorsqu'il se trouve à portée de la ressource il va commencer à récolter la ressource jusqu'à épuisement de la ressource, déplacement du unité ou mort du unité. Contrairement à  AOE II, les unités ne ramènent par leurs ressources vers un bâtiment.
--Toutes les 10 millisecondes, chaque unité inactif ira récolter une ressource si elle se trouve dans un rayon de quelques cases autour de l'unité et qu'il existe un accès pour la récolter. A noter qu'afin d'économiser des ressources, une fois cette détection faite, elle ne sera pas refaite tant que l'unité ne s'est pas déplacé vers un autre endroit.
-
-### Attaque
-
-Il existe deux méthodes d'attaque, l'attaque par ciblage et celle se réalisant automatiquement, la première n'étant pas sur d'être implémentée.
-Toutes les unités sont capables d'attaquer.
--Le joueur sélectionne une ou plusieurs unités puis clique sur une unité ennemie ou un bâtiment ennemi. Si le chemin n'est pas obstrué, l'unité va se déplacer vers la case la plus proche permettant d'être à portée d'attaque de la cible puis l'attaque automatique se déclenchera une fois arrivé à la case. Pour l'attaque d'unité, une fonctionnalité qui n'est pas sur d'être implémenter en raison de problèmes de concurrences est que l'unité ou le groupe d'unités pourchasse et suive la cible jusqu'à ce qu'elle soit morte ou hors de vue.
--Toutes les 10 millisecondes pour chaque unité inactive, une détection sera lancée afin de savoir s'il y a une unité ennemie ou un bâtiment ennemi à portée. Si c'est le cas elle commence à attaquer l'unité ou le bâtiment ennemi.
-
 ## Client
 
 Le client est la seule partie avec laquelle l'utilisateur interagit.
@@ -344,6 +322,21 @@ implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages ci
 
 Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
 issus du fichier .proto
+
+#### Pour implémenter une fonctionnalité dans le langage cible il faut dans un premier temps se référer au fichier .proto
+
+![Unity](images/codeproto.PNG) 
+
+#### Ainsi l'équivalence de cette structure en C# correspond à l'image ci-dessous
+
+![Unity](images/codeunity.PNG)
+
+### Deplacement (move to)
+
+Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les batiments ou les ressources présentes.
+Tout d'abord, le chemin à suivre est calculé par le serveur.
+Pour celà, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connait ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
+
 
 ### UI
 
@@ -426,17 +419,13 @@ Cela nous permet de gagner du temps en s'investissant moins dans la recherche de
 
 L'un des avantages de go et l'outils go test, il permet de lancer très facilement nos tests unitaires.
 
+\newpage
+
 ### Data race
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
-#### Les data races/concurrences entre les différents mouvement d'actions
-
-Pour chaque unité, s'il est en train de réaliser une action, et qu'il est ordonnée d'en faire une autre, la nouvelle doit annuler la précédente action. Pour pouvoir réaliser cela, nous avons exploiter les channels offerts par Golang. Mais l'utilisation de ces channels provoquait eux-même une data race, nous avons donc du utiliser des synchronisations de groupes pour éviter des accès concurrentiels.
-
 # Partie Personnel
-
-\newpage
 
 ## Timothée Oliger
 
@@ -451,22 +440,21 @@ Cela peut s'expliquer par un manque de pratiques et des explications pas toujour
 Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
 
 J'ai également pu me perfectioner en:
-- déployant le système de CI / CD
-- deployant les services grâce à kubernetes
-- adaptater les services au cloud
-- Implémenter le système d'authentification
-- apporter du soutient logistique pour configurer les systèmes de l'équipe
-- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
+* déployant le système de CI / CD
+* deployant les services grâce à kubernetes
+* adaptater les services au cloud
+* Implémenter le système d'authentification
+* apporter du soutient logistique pour configurer les systèmes de l'équipe
+* Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
 
 Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
+
 
 Pour conclure, globalement ce projet s'est bien dérouler mais l'hétérogénéité entre les membres à compliquer le déroulement du projet, par ailleurs je trouve que des membres se sont démenés pour finir ce projet et ont enormement progréssé dans leurs domaines.
 Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et motivations est très difficile, je pense après reflexions que nous avons choisi quelquechose de trop ambitieux.
 
 J'ajoute que la création d'un registry gitlab serait bénéfique pour les années futures.
 Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, deploiement).
-
-\newpage
 
 ## Adrien OSSYWA
 
@@ -475,10 +463,10 @@ En effet là était le plus gros problème de mon point de vue car je me suis so
 Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
 Ma partie a été centrée sur plusieurs points :
-- les fonctions de créations des différentes entitées à des positions précises.
-- les pages de connexion avec l'appel à l'api
-- la gestion de déplacement de toutes les entités sur la carte
-- les sons
+* les fonctions de créations des différentes entitées à des positions précises.
+* les pages de connexion avec l'appel à l'api
+* la gestion de déplacement de toutes les entités sur la carte
+* les sons
 
 Unity m'a vraiment aidé surtout sur la partie Déplacement des entités car il existe des fonctionnalités très efficaces nativement incluses.
 
@@ -572,6 +560,7 @@ Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, 
 Une position central dans la communication que je trouve très intéressant.
 
 \newpage
+
 
 ## Dorian SCHWAMBACH
 
