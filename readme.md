@@ -40,12 +40,12 @@ Cette equipe est composée de `Marie`, `Adrien` et `Chloé`.
 
 L'équipe noyau est chargée de déveloper le noyau.
 
-Cette équipe est composée de `Dorian`, `Louis C` et `Arthur`.
+Cette équipe est composée de `Dorian` et `Arthur`.
 
 ### Réseaux
 
 L'équipe réseaux est chargé de faire communiquer les deux applications, l'application de selection
 des parties ainsi que le deploiement.
 
-Cette équipe est composée de `Louis T` et `Tim`.
+Cette équipe est composée de `Louis T` `Louis C`et `Tim`.
 
