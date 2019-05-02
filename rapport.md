@@ -60,7 +60,6 @@ Stephane \textsc{Cateloin}
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
 Il s'agit de créer un jeu multijoueur en temps réel, reprenant un jeux des années 1980-1990.
 
-
 # Contexte
 
 Les CMI en option Imagerie ont été amenés à utiliser un moteur de jeu 3D, ici Unity, lors d'un projet au semestre 5.
@@ -90,11 +89,12 @@ Nous avons du faire des compromis pour que tous le monde puisse progresser dans 
 Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
 JAVA étant lourd et en voie d'extinction, ilPyhton et GO était les deux choix restants.
 Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages:
-* d'être compilable
-* d'intégrer des outils de test
-* d'intégrer une gestion des dépendances
-* d'intégrer une documentation
-* de très bien s'intégrer à une architecture micro-service
+
+- d'être compilable
+- d'intégrer des outils de test
+- d'intégrer une gestion des dépendances
+- d'intégrer une documentation
+- de très bien s'intégrer à une architecture micro-service
 
 ## Architecture
 
@@ -105,10 +105,10 @@ En discutant entre membres de l'équipe, nous nous sommes tournés vers une achi
 ### Micro-services
 
 Les avantages d'une architecture de type "micro-services" sont :
-* l'indépendance entre les services
-* la quantité de code raisonable et facilement assimilable contenue dans chaque service
-* la possibilité d'augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
 
+- l'indépendance entre les services
+- la quantité de code raisonable et facilement assimilable contenue dans chaque service
+- la possibilité d'augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
 
 ### API authentification
 
@@ -165,7 +165,6 @@ Unity est un moteur de jeux propriétaire possédant un nombre conséquent d'ass
 L'avantage de Unity comparé à Godot, est que nous avon appris à le manipuler lors de l'UE "Moteur de Jeux 3D" ce qui a été décisif sur notre choix en plus du grand nombre d'utilisateurs.
 A la vue de l'ampleur de notre projet, nous ne pouvions pas nous permettre de perdre un temps considérable sur la prise en main de Godot.
 
-
 #### Godot
 
 Godot est un moteur de jeux open source, il est léger et facilement intégrable avec git.
@@ -204,7 +203,7 @@ Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des inform
 Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisé de manière générique pour les 2 langages.
 Les modifications de ce fichier implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
 
-Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
+Dans le dossier utilisé pour Unity, il faut insérer dans le dossier "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
 issus du fichier .proto
 
 ## Répartition des taches
@@ -261,6 +260,31 @@ Le fait que tout le monde ne travaillait pas sous le même OS, le developpement 
 ## S'adapter aux configs
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
+
+## Client
+
+Le client est la seule partie avec laquelle l'utilisateur interagit.
+Les objectif de ce module, et d'intéger un système d'authentification et le jeux.
+
+### Unity
+
+![Unity](images/unity.png)
+
+### GRPC
+
+### Deplacement (move to)
+
+### UI
+
+### Authentification
+
+#### JWT
+
+![JWT](images/jwt.png)
+
+Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie normaliser qui a fait
+ses preuves
+L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
 
 ## docker
 
@@ -321,7 +345,6 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
 jeux.
-
 
 # Conclusion
 
