@@ -300,6 +300,29 @@ Le fait que tout le monde ne travaillait pas sous le même OS, le developpement 
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
+## Explication de certaines fonctionnalités du jeu
+
+### Deplacement (move to)
+
+Le déplacement d'une unité s'effectue en plusieurs étapes et nécessite de prendre en compte les obstacles placés sur la carte du jeu tels que les bâtiments ou les ressources présentes.
+Tout d'abord, le chemin à suivre est calculé par le serveur.
+Pour cela, on crée une matrice de poids en associant chaque case à un poids correspondant au nombre d'itérations nécessaire à l'algorithme pour y accéder depuis la case de destination. Une case déjà visitée ne change pas de poids s'il est défini. Les cases contenant des obstacles sont exclues de ce calcul de poids et possèdent une valeur négative pour pouvoir mieux les distinguer des autres. On connaît ainsi la taille du chemin s'il existe, la demande de déplacement étant annulée sinon. Le chemin a emprunter est ensuite calculé, un thread est créé par le serveur pour déplacer l'unité pas à pas et les clients sont notifiés du déplacement.
+
+### Récolte de ressources
+
+Il existe deux méthodes de récolte, la récolte de ressource par ciblage et celle se réalisant automatiquement, la deuxième n'étant pas sur d'être implémentée.
+Les deux unité pouvant récolter des ressources sont les villageois et les harvesters
+-Le joueur sélectionne une ou plusieurs unités pouvant récolter des ressources puis clique sur une ressource. Le unité va se déplacer vers la case la plus proche et n'étant pas obstruée lui permettant d'être à portée de récolte. S'il n'existe pas de chemin possible pour accéder à la ressource ou que toutes les cases permettant d'être à portée de la ressource sont obstrués, le clic sur la ressource ne fera pas déplacer le unité. Lorsqu'il se trouve à portée de la ressource il va commencer à récolter la ressource jusqu'à épuisement de la ressource, déplacement du unité ou mort du unité. Contrairement à  AOE II, les unités ne ramènent par leurs ressources vers un bâtiment.
+-Toutes les 10 millisecondes, chaque unité inactif ira récolter une ressource si elle se trouve dans un rayon de quelques cases autour de l'unité et qu'il existe un accès pour la récolter. A noter qu'afin d'économiser des ressources, une fois cette détection faite, elle ne sera pas refaite tant que l'unité ne s'est pas déplacé vers un autre endroit.
+
+### Attaque
+
+Il existe deux méthodes d'attaque, l'attaque par ciblage et celle se réalisant automatiquement, la première n'étant pas sur d'être implémentée.
+Toutes les unités sont capables d'attaquer.
+-Le joueur sélectionne une ou plusieurs unités puis clique sur une unité ennemie ou un bâtiment ennemi. Si le chemin n'est pas obstrué, l'unité va se déplacer vers la case la plus proche permettant d'être à portée d'attaque de la cible puis l'attaque automatique se déclenchera une fois arrivé à la case. Pour l'attaque d'unité, une fonctionnalité qui n'est pas sur d'être implémenter en raison de problèmes de concurrences est que l'unité ou le groupe d'unités pourchasse et suive la cible jusqu'à ce qu'elle soit morte ou hors de vue.
+-Toutes les 10 millisecondes pour chaque unité inactive, une détection sera lancée afin de savoir s'il y a une unité ennemie ou un bâtiment ennemi à portée. Si c'est le cas elle commence à attaquer l'unité ou le bâtiment ennemi.
+
+
 ## Client
 
 Le client est la seule partie avec laquelle l'utilisateur interagit.
@@ -424,6 +447,13 @@ L'un des avantages de go et l'outils go test, il permet de lancer très facileme
 ### Data race
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
+
+ 	
+#### Les data races/concurrences entre les différents mouvement d'actions
+	
+Pour chaque unité, s'il est en train de réaliser une action, et qu'il est ordonnée d'en faire une autre, la nouvelle doit annuler la précédente action. 
+Pour pouvoir réaliser cela, nous avons exploiter les channels offerts par Golang. 
+Mais l'utilisation de ces channels provoquait eux-même une data race, nous avons donc du utiliser des synchronisations de groupes pour éviter des accès concurrentiels.
 
 # Partie Personnel
 
