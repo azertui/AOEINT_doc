@@ -151,9 +151,8 @@ Ce Service permet de calculer le niveaux de chaque joueur, il exploite pour cela
 
 #### Ligues
 
-Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la
-ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à
-terminer dans la ligue qu'il lui correpond
+Le système de classement classe les joueurs dans 4 ligues différentes. Le joueur commence dans la ligue la plus basse, et lorsqu'il gagne des parties, il monte doucement le classement jusqu'à terminer dans la ligue qu'il lui correpond.
+Cette API n'a pas encore developper car elle est d'une priorité basse.
 
 #### Avantages
 
@@ -167,6 +166,7 @@ A l'heure actuelle, nous l'avons pas pu l'implementer car c'est un module non ne
 ### API de gestion des parties
 
 Ce service permet de rejoindre des partie, obtenir des informations sur les parties comme la composition des équipes.
+A l'heure actuelle cette API n'est pas terminée mais elle devrait aparaitre en fin de semaine.
 
 ### Instance de partie
 
@@ -278,7 +278,7 @@ Dockercloud n'est pas compatible avec gitlab, pour pouvoir profiter de la ci il 
 
 Le fait que tout le monde ne travaillait pas sous le même OS, le developpement à posé quelques soucis en début de projet.
 
-## S'adapter aux configs
+## S'adapter aux configurations
 
 Il a falu faire du cas par cas afin d'installer go, unity et des dépendances sur chaques machines.
 
