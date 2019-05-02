@@ -23,6 +23,8 @@ header-includes:
 Timothée \textsc{Oliger}\\
 Adrien \textsc{Ossywa}\\
 Marie \textsc{Monfouga}\\
+Arthur \textsc{Rauch}\\
+Chloé \textsc{Riche}\\
 Louis-César \textsc{Pagès}\\
 Dorian \textsc{Schwambach}\\
 \end{flushleft}
