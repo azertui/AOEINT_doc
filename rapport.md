@@ -502,7 +502,17 @@ La partie la plus difficile au commencement était la mise en commun de nos modi
 Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
 Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres et à s'accorder avec l'équipe serveur.
 
+## Rauch Arthur
 
+Développer Tiny Empire était une expérience intéressante, notamment au niveau de l'organisation du projet et de la répartition du travail, tâches devenues bien plus importantes que lors de plus petits projets effectués auparavant.
+Notre première réalisation au sein de l'équipe "Noyau" fut de choisir Go comme langage pour le serveur.
+En effet, bien qu'il s'agissait d'un langage inconnu, ce langage performant et très modulable nous a paru être adéquat.
+Il a ensuite fallu définir le fonctionnement du jeu puis les différentes classes et la manière d'échanger les données entre elles, ainsi que de les transmettre à la partie communication du serveur gérée par Louis Thomann.
+Je me suis majoritairement concentré sur l'optimisation de la communication des données entre les différentes classes, de l'exploitation de données extérieures(api, fichier json) et le bon fonctionnement des algorithmes parallèles, notamment vis-à-vis des problèmes de concurrence.
+Il était nécessaire pour celà d'établir dès la création des premiers prototypes de classes la manière dont elles allaient communiquer.
+C'est ainsi que furent créés deux buffers correspondant respectivement aux différents types d'informations utiles à transmettre par GRPC et un tableau d'identification unique des différentes instances d'objets de la partie en cours.
+J'ai également réalisé les premières versions des algorithmes de déplacement d'entités ainsi que l'algorithme de pathfinding par matrice de poids et veillé à la bonne compréhension des convensions adoptées lors de nos réunions afin de toujours maintenir le fonctionnement interne d'une partie sur serveur compatible avec son exécution par le client.
+La résolution des problèmes de concurrence s'est révélé être le problème le plus ardu auquel je fus confronté, celui-ci évoluant au cours de nouvelles utilisations auparavant imprévues des différents objets et nécessitant constamment de nouvelles solutions, telles que l'utilisation de channels et d'autres systèmes de blocage ou de communication avec attente passive. Afin d'être sûr de résourdre cette problème et de maintenir la cohésion lors de la réunion de différents travaux, il a fallu que je m'informe en permanence des dernières résolutions de mes collaborateurs et que je travaille réellement de concert avec eux, ce qui me plut beaucoup.
 
 ## Louis-César Pagès
 
