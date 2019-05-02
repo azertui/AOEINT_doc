@@ -99,32 +99,34 @@ Après discussion GO nous a paru plus adapté, dans le sens où il ressemble for
 
 ![Architecture](images/infra.png)
 
-En discutant entre membres de l'équipe, nous nous sommes tournés vers une achitecture de type "micro-services" : c'est celle qui nous a semblée la plus propie à l'application des connaissances respectives de chacun.
+En discutant entre membres de l'équipe, nous nous sommes tournés vers une architecture de type "microservices" : c'est celle qui nous a semblé la plus propice à l'application des connaissances respectives de chacun.
 
 ## Comunication en temps réel avec GRPC
 
-Pour la communication temps réel entre le client et l'instance de jeux nous devons utiliser quelquechose de solide qui permet de jouer en temps réel.
-La deuxième contrainte et d'utiliser un protocol qui s'adapte à un environement cloud sans ajouter une quantité non négligeable de code.
+Pour la communication temps réel entre le client et l'instance de jeux nous devons utiliser quelque chose de solide qui permet de jouer en temps réel.
+La deuxième contrainte et d'utiliser un protocole qui s'adapte à un environnement cloud sans ajouter une quantité non négligeable de code.
 
 Cette librairie permet d'établir une communication stable reposant sur les standards HTTP/2.
-Cette technologie a été retenu car elle peut être utilisée pour plusieurs langage de développement et est facilement intégrable au code source.
+Cette technologie a été retenue car elle peut être utilisée pour plusieurs langages de développement.
+De plus, elle est facilement intégrable au code source.
 Plusieurs services peuvent être implémentés et générer dans le langage cible voulu à partir d'un fichier .proto.
-Ces services doivent être décrites dans ce fichier pour être ensuite interprétés par le compilateur protoc.
-Un code va être généré à l'aide de ce fichier contenant l'équivalence des services spécifiées écrits en langage cible.
-Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des informations de manière transparente lors du dévelopement du jeu.
-Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisé de manière générique pour les 2 langages.
-Les modifications de ce fichier implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
+Ces services doivent être décrits dans ce fichier pour être ensuite interprétés par le compilateur ProtoBuf.
+Un code va être généré à l'aide de ce fichier contenant l'équivalence des services spécifiés écrits en langage cible.
+Ainsi, les fonctions créées permettent de récupérer/envoyer des informations de manière transparente lors du développement du jeu.
+Le fichier .proto doit être le même pour code GRPC Go et GRPC C#.
+Ainsi, les services doivent être formalisés de manière générique pour les 2 langages.
+Les modifications de ce fichier impliquent qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet.
 
-Dans le dossier utilisé pour Unity, il faut insérer dans le dossier "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
-issus du fichier .proto
+Dans le dossier utilisé pour Unity, il faut insérer dans "Assets/Plugin", les éléments du Framework GRPC.
+Ceux-ci vont permettre d'interpréter les services écrits dans le langage cible issu du fichier .proto.
 
-### Micro-services
+### Microservices
 
-Les avantages d'une architecture de type "micro-services" sont :
+Les avantages d'une architecture de type microservices sont :
 
 - l'indépendance entre les services
-- la quantité de code raisonable et facilement assimilable contenue dans chaque service
-- la possibilité d'augmenter la robustesse de l'application en dupliquant uniquement les services les plus solicités.
+- la quantité de code raisonnable et facilement assimilable contenue dans chaque service
+- la possibilité d'augmenter la robustesse de l'application en dupliquant uniquement les services les plus sollicités.
 
 ### API authentification
 
