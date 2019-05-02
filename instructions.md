@@ -2,6 +2,20 @@
 
 ## Commencer à jouer
 
+Avant de commencer à jouer à Tiny Empire, il vous faut un compte propre au jeu.
+Pour en créé un rien de plus simple:
+- rendez vous sur le premier écran du jeu (connexion).
+- cliquez sur le bouton s'enregistrer.
+- renseignez votre Email qui vous servira de Login ainsi que votre mot de passe et la confirmation de mot de passe.
+- cliquez sur le bouton "s'enregistrer".
+- Si aucun message d'erreur apparait et que vous êtes renvoyé sur le premier écran de connexion : Félicitation votre compte est prêt.
+
+Après avoir créé votre compte veuillez renseigner vos identifiants de connexion sur l'écran de connexion. 
+
+Cliquez sur nouvelle partie et commencer la partie.
+
+Vous voila plongé dans le monde de la conquête.
+
 
 
 ## Les commandes clavier
