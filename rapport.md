@@ -15,6 +15,8 @@ En choisissant d'utiliser Unity plutôt qu'un moteur de jeu inconnu des CMI Imag
 Un premier brainstorming a été réalisé lors des réunions de début, afin de trouver le jeu le plus adapté aux demandes et contraintes du sujet.
 Les avis se sont majoritairement dirigés vers un Real Time Strategy (RTS) game, soit un jeu de stratégie en temps réel.
 Après reflexion, nous avons fini par choisir Age Of Empire, car cela motivait tous les membres de l'équipe, et qu'une version alégée nous parassait accessible.
+Cependant nous avons sous-estimé la charge de travail que représente un RTS tel que Age Of Empire. De ce fait nous avons du limiter énormément les fonctionnalités et nous avons
+fait impasse sur la version mobile et Web.
 
 # Conception du jeu
 
