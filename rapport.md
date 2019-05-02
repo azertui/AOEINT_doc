@@ -57,7 +57,7 @@ Nous avons décidé de choisir la réalistion d'une API GraphQL afin de se conne
 
 GraphQL est un language créé par Facebook.
 Même si REST (Representational State Tranfer) demeure le format standart des API, certains développeurs décident de se tourner vers GraphQL pour combler leslacunes majeures de ce format.
-Contrairement à REST, et son modèle relativement structuré basé sur les ressources, GraphQL intervient avc une approche plus flexible : on crée un schéma de requête, puis le serveur l'analyse et renvoie les informations demandées.
+Contrairement à REST, et son modèle relativement structuré basé sur les ressources, GraphQL intervient avec une approche plus flexible : on crée un schéma de requête, puis le serveur l'analyse et renvoie les informations demandées.
 De plus, l'utilisation du projet "Apollo Server" permet de monter une API GraphQL très simplement et rapidement.
 
 #### Knex / bookshelf
