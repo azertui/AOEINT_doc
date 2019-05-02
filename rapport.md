@@ -506,7 +506,7 @@ Lors d'un ajout de fonctionnalité il fallait également faire attention à ne p
 
 ## Louis-César Pagès
 
-Ce projet m'a permis d'utiliser pleinement les connaissances apprise tout au long de mes études et notament lors de mon séjour ERASMUS en Espagne. En effet, j'ai déjà eu l'opportunité de créer
+Ce projet m'a permis d'utiliser pleinement les connaissances apprises tout au long de mes études et notament lors de mon séjour ERASMUS en Espagne. En effet, j'ai déjà eu l'opportunité de créer
 un projet de dévelopement dans le cadre d'une UE "Software engineering" où j'ai pû en apprendre beaucoup sur l'environnement de travail Visual Studio. Donc, lorsque j'ai été assigné à la communication
 côté client, je me suis senti très à l'aise avec le code C# généré par Unity.
 Le plus compliqué fut de trouver la manière d'intégrer le framework GRPC sur Unity. En effet, une documentation existe pour le dévelopement avec C# mais pour Unity cela reste experimental.
