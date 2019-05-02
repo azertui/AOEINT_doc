@@ -23,6 +23,7 @@ header-includes:
 Timothée \textsc{Oliger}\\
 Adrien \textsc{Ossywa}\\
 Marie \textsc{Monfouga}\\
+Louis-César \textsc{Pagès}\\
 \end{flushleft}
 \end{minipage}
 ~
