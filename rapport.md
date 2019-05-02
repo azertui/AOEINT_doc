@@ -70,7 +70,7 @@ En choisissant d'utiliser Unity plutôt qu'un moteur de jeu inconnu des CMI Imag
 
 Un premier brainstorming a été réalisé lors des réunions de début, afin de trouver le jeu le plus adapté aux demandes et contraintes du sujet.
 Les avis se sont majoritairement dirigés vers un Real Time Strategy (RTS) game, soit un jeu de stratégie en temps réel.
-Après reflexion, nous avons fini par choisir Age Of Empire, car cela motivait tous les membres de l'équipe, et qu'une version alégée nous parassait accessible.
+Après reflexion, nous avons fini par choisir Age Of Empire, car cela motivait tous les membres de l'équipe, et qu'une version alégée nous paraissait accessible.
 Cependant nous avons sous-estimé la charge de travail que représente un RTS tel que Age Of Empire. De ce fait nous avons du limiter énormément les fonctionnalités et nous avons
 fait impasse sur la version mobile et Web.
 
@@ -87,7 +87,7 @@ Nous avons du faire des compromis pour que tous le monde puisse progresser dans 
 ### Langage de programmation
 
 Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
-JAVA étant lourd et en voie d'extinction, ilPyhton et GO était les deux choix restants.
+JAVA étant lourd et en voie d'extinction, Pyhton et GO étaient les deux choix restants.
 Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages suivant:
 - d'être compilable
 - d'intégrer des outils de test
@@ -188,11 +188,11 @@ A la vue de l'ampleur de notre projet, nous ne pouvions pas nous permettre de pe
 
 Godot est un moteur de jeux open source, il est léger et facilement intégrable avec git.
 Cependant Godot souffre d'un manque cruel de communauté comparé à Unity et la documentation présentait des lacunes.
-Pour départagé un vote à été réalisé et notre choix s'est dirigé vers unity.
+Pour départager un vote a été réalisé et notre choix s'est dirigé vers unity.
 
 ##### Choix final
 
-Les personnes ayant testés Godot ont exprimés leurs réticences, elles étaient notament leurs expérience sur unity, la puissance d'unity et de sa grande librairie d'assets et le manque de motivation pour apprendre Godot.
+Les personnes ayant testé Godot ont exprimés leurs réticences, elles étaient notament leurs expérience sur unity, la puissance d'unity et de sa grande librairie d'assets et le manque de motivation pour apprendre Godot.
 
 # Organisation
 
@@ -208,14 +208,14 @@ Nous avons essayé de rendre les équipes cohérentes, par exemple pour le noyau
 
 ### Front
 
-L'équipe front qui est composé des CMI Image est chargé de déveloper le client car ces derniers ont appris à utiliser Unity et son plus à l'aise dans la création de l'UI / Animations ...
+L'équipe front qui est composé des CMI Image est chargé de déveloper le client car ces derniers ont appris à utiliser Unity et sont plus à l'aise dans la création de l'UI / Animations ...
 Elle est composée d'Adrien, Chloé et Marie.
 
 ### Noyaux
 
-L'équipe noyaux est chargé de développer le noyaux.
-Jusqu'a l'alpha, elle était composer de Arthur, Louis C et de Dorian.
-Durant la beta, le noyaux ayant ateint ses objectifs, il est devenu plus judicieux de renforcer l'équipe réseaux en y transférant Louis C car il est à l'aise en C#.
+L'équipe noyaux est chargé de développer le noyau.
+Jusqu'a l'alpha, elle était composée de Arthur, Louis C et de Dorian.
+Durant la beta, le noyau ayant atteint ses objectifs, il est devenu plus judicieux de renforcer l'équipe réseaux en y transférant Louis C car il est à l'aise en C#.
 
 ### Réseaux
 
@@ -293,16 +293,16 @@ Les objectif de ce module, et d'intéger un système d'authentification et le je
 
 ### GRPC
 
-Cette librairie permet d'établir une communication stable reposant sur les standards HTTP/2. Cette technologie 
+Cette librairie permet d'établir une communication stable reposant sur les standards HTTP/2. Cette technologie
 a été retenu car elle peut être utilisée pour plusieurs langages de développement et est facilement intégrable au code source.
 Plusieurs services peuvent être implémentés et générer dans le langage cible voulu à partir d'un fichier .proto . C'est services doivent
-être décrites dans ce fichier pour être ensuite interprétés par le compilateur protoc. Un code va être généré à l'aide de ce fichier contenant 
-l'équivalence des services spécifiées écrits en langage cible. 
-Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des informations de manière transparente lors du dévelopement du jeu. 
+être décrites dans ce fichier pour être ensuite interprétés par le compilateur protoc. Un code va être généré à l'aide de ce fichier contenant
+l'équivalence des services spécifiées écrits en langage cible.
+Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des informations de manière transparente lors du dévelopement du jeu.
 Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisés de manière générique pour les 2 langages. Les modifications de ce fichier
 implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
 
-Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible 
+Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible
 issus du fichier .proto
 
 
@@ -384,6 +384,11 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
 jeux.
+
+## Monfouga Marie
+
+Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel. Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci. Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres. La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity. Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits. Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.  
+
 
 # Conclusion
 
