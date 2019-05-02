@@ -584,6 +584,8 @@ J'ai pour ma part surtout communiqué Arthur qui a su être très réactif si j'
 
 En bref, grâce à ce projet, j'ai pu apprendre un nouveau langage ainsi qu'en apprendre plus sur la réalisation concrète d'un "gros" projet et mettre en pratique mes connaissances acquises lors de la licence
 
+\newpage
+
 ## Louis THOMANN
 
 J'ai fait partie de l'équipe réseau dès son début pour gérer les communications entre le client et le serveur.
@@ -612,6 +614,8 @@ Mais cela demande déjà une organisation et une logistique impossible à négli
 Nous avons pu compter sur le regard de Timothée pour nous proposer des technologies intéressantes.
 Il a aussi réalisé des tests d'intégration continue qui ont aussi été un grand défi lors des "Milestone".
 Ce projet laisse un souvenir indélébile d'une première expérience de développement dans une équipe.
+
+\newpage
 
 # Conclusion
 
