@@ -59,7 +59,7 @@ Stephane \textsc{Cateloin}
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
 Il s'agit de créer un jeu multijoueur en temps réel, reprenant un jeux des années 1980-1990.
-Il est entièrement open source les modules sont disponible sur le[git](https://git.unistra.fr/AOEINT/) le l'unistra.
+Il est entièrement open source les modules sont disponible sur le [git](https://git.unistra.fr/AOEINT) le l'unistra.
 
 # Contexte
 
