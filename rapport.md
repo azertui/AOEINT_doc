@@ -442,6 +442,7 @@ Cela peut s'expliquer par un manque de pratiques et des explications pas toujour
 Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
 
 J'ai également pu me perfectioner en :
+
 * déployant le système de CI / CD
 * deployant les services grâce à kubernetes
 * adaptater les services au cloud
