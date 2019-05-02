@@ -1,3 +1,60 @@
+---
+header-includes:
+  - '`\usepackage{graphicx}`{=latex}'
+---
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\center
+
+\textsc{\LARGE Université de Strasbourg}\\[1cm]
+\textsc{\Large Cursus Master Ingénierie – Informatique}\\[0.5cm]
+\textsc{\large L3S6}\\[0.5cm]
+
+\HRule \\[0.4cm]
+{ \huge \bfseries rapport projet intégrateur}\\[0.4cm]
+\HRule \\[1.5cm]
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Auteur :}\\
+Timothée \textsc{Oliger}\\
+Adrien \textsc{Ossywa}\\
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Responsable :} \\
+Stephane \textsc{Cateloin}
+\end{flushright}
+\end{minipage}\\[1cm]
+
+\textsc{Sujet}\\
+\emph{Tiny Empire}\\[1.5cm]
+
+\begin{minipage}{.4\textwidth}
+\begin{flushleft}
+\includegraphics[width=.8\linewidth]{images/unistra.png}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{.4\textwidth}
+\begin{flushright}
+\includegraphics[width=.8\linewidth]{images/reseaux.jpg}
+\end{flushright}
+\end{minipage}\\[1cm]
+
+{\large \today}
+
+\vfill
+
+\end{titlepage}
+
+\tableofcontents
+
 # Introduction
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
@@ -40,6 +97,8 @@ Après discussion GO nous a paru plus adapté, dans le sens où il ressemble for
 * de très bien s'intégrer à une architecture micro-service
 
 ## Architecture
+
+![Architecture](images/infra.png)
 
 En discutant entre membres de l'équipe, nous nous sommes tournés vers une achitecture de type "micro-services" : c'est celle qui nous a semblée la plus propie à l'application des connaissances respectives de chacun.
 
