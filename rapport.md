@@ -22,6 +22,7 @@ header-includes:
 \emph{Auteur :}\\
 Timothée \textsc{Oliger}\\
 Adrien \textsc{Ossywa}\\
+Marie \textsc{Monfouga}\\
 \end{flushleft}
 \end{minipage}
 ~
@@ -347,7 +348,7 @@ Les modifications de ce fichier impliquent qu'une nouvelle compilation des fichi
 
 #### Pour implémenter une fonctionnalité dans le langage cible il faut dans un premier temps se référer au fichier .proto
 
-![Unity](images/codeproto.PNG) 
+![Unity](images/codeproto.PNG)
 
 #### Ainsi l'équivalence de cette structure en C# correspond à la class AskCreationRequest ci-dessous
 
@@ -454,11 +455,11 @@ L'un des avantages de Go et l'outils `go test`, il permet de lancer très facile
 
 L'outil `go test` permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
- 	
+
 #### Les data races/concurrences entre les différents mouvement d'actions
-	
-Pour chaque unité, s'il est en train de réaliser une action, et qu'il est ordonnée d'en faire une autre, la nouvelle doit annuler la précédente action. 
-Pour pouvoir réaliser cela, nous avons exploiter les channels offerts par Golang. 
+
+Pour chaque unité, s'il est en train de réaliser une action, et qu'il est ordonnée d'en faire une autre, la nouvelle doit annuler la précédente action.
+Pour pouvoir réaliser cela, nous avons exploiter les channels offerts par Golang.
 Mais l'utilisation de ces channels provoquait eux-même une data race, nous avons donc du utiliser des synchronisations de groupes pour éviter des accès concurrentiels.
 
 # Partie Personnel
