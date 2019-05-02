@@ -391,8 +391,31 @@ L'outil go test permet également de détecter les data races, nous en avons ren
 
 ## Timothée Oliger
 
-Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce
-jeux.
+Tout d'abord je tiens à remercier mes colaborateurs, c'est ensemble que nous avons pu terminer ce jeu.
+
+Etant chef de projet durant ce projet, j'ai essayé de faire profiter de mon expérience pour proposer des solutions et des bonnes pratiques qui je l'espère ont améliorés la qualité du projet.
+Cependant je pense que le projet n'a pas évolué de façon continu et malheuresement certaines personnes n'ont pas joués le jeu de la micro organisation.
+Au lieu d'exposer leurs discussions techniques sur gitlab,  certains utilisaient les messages privées puis prenaient des initatives non consenti.
+Cela à entrainé des contre-temps liés à des modifications de spécifications sans concertation et de modules inutiles, entrainant des tempêtes de bugs.
+Cela peut s'expliquer par un manque de pratiques et des explications pas toujours clair, peut être aussi par un manque de temps / investissement.
+
+Ce projet m'a apporté beaucoup d'expérience sur l'aspect social d'une gestion de projet, ma difficulté était de trouver un juste milieu entre la gestion de projet et le developement.
+
+J'ai également pu me perfectioner en:
+- déployant le système de CI / CD
+- deployant les services grâce à kubernetes
+- adaptater les services au cloud
+- Implémenter le système d'authentification
+- apporter du soutient logistique pour configurer les systèmes de l'équipe
+- Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
+
+Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
+
+Pour conclure, globalement ce projet s'est bien dérouler mais l'hétérogénéité entre les membres à compliquer le déroulement du projet, par ailleurs je trouve que des membres se sont démenés pour finir ce projet et ont enormement progréssé dans leurs domaines.
+Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et motivations est très difficile, je pense après reflexions que nous avons choisi quelquechose de trop ambitieux.
+
+J'ajoute que la création d'un registry gitlab serait bénéfique pour les années futures.
+Cela permetrait de se limiter à gitlab pour le circuit de CI/CD (test, build, deploiement).
 
 ## Adrien OSSYWA
 
