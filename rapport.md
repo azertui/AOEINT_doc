@@ -1,60 +1,3 @@
----
-header-includes:
-  - '`\usepackage{graphicx}`{=latex}'
----
-
-\begin{titlepage}
-
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-
-\center
-
-\textsc{\LARGE Université de Strasbourg}\\[1cm]
-\textsc{\Large Cursus Master Ingénierie – Informatique\\[0.5cm]
-\textsc{\large L3S6}\\[0.5cm]
-
-\HRule \\[0.4cm]
-{ \huge \bfseries Rapport projet intégrateur}\\[0.4cm]
-\HRule \\[1.5cm]
-
-\begin{minipage}[t]{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Auteurs :}\\
-Timothée \textsc{Oliger}\\
-Adrien \textsc{Ossywa}\\
-\end{flushleft}
-\end{minipage}
-~
-\begin{minipage}[t]{0.4\textwidth}
-\begin{flushright} \large
-\emph{Responsable :} \\
-Stephane \textsc{Cateloin}
-\end{flushright}
-\end{minipage}\\[1cm]
-
-\textsc{Sujet}\\
-\emph{Tiny Empire}\\[1.5cm]
-
-\begin{minipage}{.4\textwidth}
-\begin{flushleft}
-\includegraphics[width=.8\linewidth]{images/unistra.png}
-\end{flushleft}
-\end{minipage}
-~
-\begin{minipage}{.4\textwidth}
-\begin{flushright}
-\includegraphics[width=.8\linewidth]{images/reseaux.jpg}
-\end{flushright}
-\end{minipage}\\[1cm]
-
-{\large \today}
-
-\vfill
-
-\end{titlepage}
-
-\tableofcontents
-
 # Introduction
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
@@ -100,8 +43,6 @@ Après discussion GO nous a paru plus adapté, dans le sens où il ressemble for
 
 En discutant entre membres de l'équipe, nous nous sommes tournés vers une achitecture de type "micro-services" : c'est celle qui nous a semblée la plus propie à l'application des connaissances respectives de chacun.
 
-![infrastructure](images/infra.png)
-
 ### Micro-services
 
 Les avantages d'une architecture de type "micro-services" sont :
@@ -134,15 +75,12 @@ Pas faite
 
 ### Instance de partie
 
-Les instances de partie sont écrites en GO et conteneurisées comme les autres services grâce à docker.
-Cela permettra, à terme, de générer une partie à la demande et de la supprimer facilement.
+Les instances de partie sont écritent en GO et conteneuriser comme les autres services grace à docker.
+Cela permetra à terme de générer une partie à la demande et de la supprimer facilement.
 
 ### Client
 
-Concernant le moteur de jeu 3D côté clien, nous avons eu des hésitations entre GoDot et Unity.
-Comme précisé plus haut, les membres de l'équipe en CMI Image ont déjà utilisé l'interface de Unity
-et sont donc déjà habitués à son utilisation. Malgré des doutes sur la compatibilité entre Git et le
-fonctionnement de Unity, contrairement à GoDot
+Concernant le client, nous hésitions en GOdot et unity
 
 #### Unity
 
@@ -153,7 +91,7 @@ A la vue de l'ampleur de notre projet, nous ne pouvions pas nous permettre de pe
 
 #### Godot
 
-Godot est un moteur de jeux open source, il est léger et facilement intégrable avec git.
+Godot est un moteur de jeux open source, il est léger et facilement intégrable avec git. 
 Cependant Godot souffre d'un manque cruel de communauté comparé à Unity et la documentation présentait des lacunes.
 Pour départagé un vote à été réalisé et notre choix s'est dirigé vers unity.
 
@@ -176,7 +114,21 @@ L'équipe noyaux est chargé de développer le noyaux. E
 
 ### Réseaux
 
-L'équipe réseaux est chargé de faire le lien entre le client et l'instance de la partie.
+L'équipe réseaux est chargé de faire le lien entre le client et l'instance de la partie. Le framework utilisé pour établir cette communication est "GRPC" pour C# (unity)et GO. 
+
+##GRPC 
+
+Cette librairie permet d'établir une communication stable reposant sur les standards HTTP/2. Cette technologie 
+a été retenu car elle peut être utilisée pour plusieurs langage de développement et est facilement intégrable au code source.
+Plusieurs services peuvent être implémentés et générer dans le langage cible voulu à partir d'un fichier .proto . C'est services doivent
+être décrites dans ce fichier pour être ensuite interprétés par le compilateur protoc. Un code va être généré à l'aide de ce fichier contenant 
+l'équivalence des services spécifiées écrits en langage cible. 
+Ainsi, les fonctions/classes crées permettent de récupérer/envoyer des informations de manière transparente lors du dévelopement du jeu. 
+Le fichier .proto doit être le même pour code grpc go et grpc C#. Ainsi les services doivent êtres formalisé de manière générique pour les 2 langages. Les modifications de ce fichier
+implique qu'une nouvelle compilation des fichiers GRPC dans tous les langages cibles du projet doit être réalisé.
+
+Dans le dossier utilisé pour Unity, il faut insérer dans le dossier  "Assets/Plugin" les éléments du Framework GRPC qui va permettre d'intérpreter les services écrits langage cible 
+issus du fichier .proto 
 
 ## Répartition des taches
 
@@ -286,5 +238,5 @@ L'un des avantages de go et l'outils go test, il permet de lancer très facileme
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
 
-#
+
 
