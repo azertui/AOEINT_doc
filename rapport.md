@@ -55,6 +55,8 @@ Stephane \textsc{Cateloin}
 
 \tableofcontents
 
+\newpage
+
 # Introduction
 
 Ce projet nous permet d'appliquer les compétences que nous avons acquises durant notre licence, dans les différents domaines étudiés, notamment l'image et le réseau en CMI.
@@ -417,6 +419,8 @@ Cela nous permet de gagner du temps en s'investissant moins dans la recherche de
 
 L'un des avantages de go et l'outils go test, il permet de lancer très facilement nos tests unitaires.
 
+\newpage
+
 ### Data race
 
 L'outil go test permet également de détecter les data races, nous en avons rencontrés un très grand nombre.
@@ -446,6 +450,7 @@ J'ai également pu me perfectioner en :
 * Conseilers les membres pour aller au plus simple et apporter des solutions techniques en utilisant des outils existants comme l'utilisation de GRPC, go, utiliser une architecture par micro services ou l'utilisation de docker pour le developement ou la production
 
 Je citerais l'utilisation de docker-compose qui nous a permis d'avoir un environment complet pour developer en local, avec bdd, api et serveur de jeu sans avoir à installer les dépendances.
+
 
 Pour conclure, globalement ce projet s'est bien dérouler mais l'hétérogénéité entre les membres à compliquer le déroulement du projet, par ailleurs je trouve que des membres se sont démenés pour finir ce projet et ont enormement progréssé dans leurs domaines.
 Choisir un jeux sans connaitre les membre d'une équipe, leurs capacitées et motivations est très difficile, je pense après reflexions que nous avons choisi quelquechose de trop ambitieux.
@@ -557,6 +562,8 @@ Mon travail a aussi été étrois avec les personnes en charges du client.
 En effet, comme étant l'intermédiaire entre le serveur et eux, mon rôle devait être d'implémenter leurs besoins par rapport au serveur (par exemple: Obtenir les resources actualisés d'un joueur, charger des éléments demandés par le serveur) , mais aussi de faire de la pédagogie en expliquant les limites des communications pouvant être établis et les besoins du serveur (exemple: envois des déplacements de npc, Zone et actions non autorisés par le serveur).
 Ce rôle d'intermediaire a été très enrichissant d'un point de vu technique, j'ai pû avoir un pied dans le côté client et un autre dans celui du serveur.
 Une position central dans la communication que je trouve très intéressant.
+
+\newpage
 
 
 \newpage
