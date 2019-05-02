@@ -350,7 +350,7 @@ issus du fichier .proto
 
 ![Unity](images/codeproto.PNG)
 
-#### Ainsi l'équivalence de cette structure en C# correspond à l'image ci-dessous
+#### Ainsi l'équivalence de cette structure en C# correspond à la class AskCreationRequest ci-dessous
 
 ![Unity](images/codeunity.PNG)
 
