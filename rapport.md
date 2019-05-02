@@ -64,7 +64,7 @@ De plus, l'utilisation du projet "Apollo Server" permet de monter une API GraphQ
 
 Nous avons choisi d'utiliser un Object-Relational Mapping (ORM) pour la base de données contenant les informations sur les partie et les joueurs.
 Ce type de programme se place en interface entre un programme applicatif et une base de données relationnelle pour simuler une base de données orientée objet.
-De manière imagée, un ORM peut être décrit comme une couce d'abstraction entre le "monde objet" et "monde relationnel".
+De manière imagée, un ORM peut être décrit comme une couche d'abstraction entre le "monde objet" et "monde relationnel".
 
 ### API de classement
 
@@ -82,12 +82,16 @@ Concernant le client, nous hésitions en GOdot et unity
 
 #### Unity
 
-Unity est un moteur de jeux propriétaire possédant un nombre enorme d'assets permetant de construire un jeux rapidement sans beaucoup de conaissances.
+Unity est un moteur de jeux propriétaire possédant un nombre conséquent d'assets et de fonctionnalités puissantes permetant de construire un jeux avec des outils performants.
+L'avantage de Unity comparé à Godot, est que nous avon appris à le manipuler lors de l'UE "Moteur de Jeux 3D" ce qui a été décisif sur notre choix en plus du grand nombre d'utilisateurs.
+A la vue de l'ampleur de notre projet, nous ne pouvions pas nous permettre de perdre un temps considérable sur la prise en main de Godot.
+
 
 #### Godot
 
-Godot est un moteur de jeux open source et très puissant, il est léger et facilement intégrable avec git.
-Malheuresement Adrien voulait absolument unity.
+Godot est un moteur de jeux open source, il est léger et facilement intégrable avec git. 
+Cependant Godot souffre d'un manque cruel de communauté comparé à Unity et la documentation présentait des lacunes.
+Pour départagé un vote à été réalisé et notre choix s'est dirigé vers unity.
 
 # Organisation
 
@@ -95,11 +99,11 @@ Pour créer le jeux dans les meilleures conditions, il a fallu diviser le projet
 
 ## Formations des équipes
 
-La formation des équipes est venu naturellement. En effet les CMI images forment l'équipe front car ils ne sont pas très à l'aise à la programmation dure.
+La formation des équipes est venue naturellement en fonction des différents CMI ' Image / Réseau '.
 
 ### Front
 
-L'équipe front est chargé de déveloper le client.
+L'équipe front qui est composé des CMI Image est chargé de déveloper le client car ces derniers ont appris à utiliser Unity et son plus à l'aise en UI / Animations ...
 Elle est composée d'Adrien, Chloé et Marie.
 
 ### Noyaux
