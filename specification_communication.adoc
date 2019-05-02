@@ -2,12 +2,12 @@
 === Message du Client
 
 * Type : RightClickRequest
-* Demande du Client : Demande le déplacement de une ou plusieurs unités
+* Demande du Client : Demande le déplacement d'une ou plusieurs unités
 * Argument donné par Client :
 
     ** (Coordinates) Point : Variable de type coordonnée servant de destination.
     ** ([]string) EntitySelectionUUID : Tableau des identifiants concerné par la requête.
-    ** (string) Target : Chaine de caractère représentant l'entité qui doit être attaquer.
+    ** (string) Target : Chaine de caractères représentant l'entité qui doit être attaquée.
     Cela peut être :
         *** Un identifiant de NPC
         *** Un identifiant de batiment
@@ -23,21 +23,21 @@
 
 ==== Coordinates
 
-* (float) X : Réel de 32 bits donnant la composante x de la coordonnée sur le carte
-* (float) Y : Réel de 32 bits donnant la composante y de la coordonnée sur le carte
+* (float) X : Réel de 32 bits donnant la composante x de la coordonnée sur la carte
+* (float) Y : Réel de 32 bits donnant la composante y de la coordonnée sur la carte
 
 == Fonction: AskUpdate
 === Message du Client
 
 * Message du Client : AskUpdateRequest
-* Demande du Client : Demande les actions qui ont été signaler au serveur pour mettre à jour le client.
+* Demande du Client : Demande les actions qui ont été signalées au serveur pour mettre à jour le client.
 * Argument donné par Client :
-    ** (string) Token : Suite de caractère permettant d'identifier et authentifier le client au près du serveur
+    ** (string) Token : Suite de caractères permettant d'identifier et authentifier le client auprès du serveur
 
 === Message du Serveur
 
 * Message du Serveur : AskUpdateReply
-* Reponse du Serveur : Message contenant un tableau des actions * signaler au serveur
+* Reponse du Serveur : Message contenant un tableau des actions signalé au serveur.
 * Argument donné par Serveur :
     ** ([]UpdateAsked) Array : Tableau contenant les actions entreprissent depuis la dernière mise à jour
         *** (int32) Type : Type de l'action décrite dans la suite du message
