@@ -391,13 +391,13 @@ jeux.
 ## Adrien OSSYWA
 
 Ce premier projet de "grande ampleur" m'a vraiment montré à quel point la coordination est un point crucial pour le bon avancement du projet.
-En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalitées qui finalement n'ont pas été utilisées, mises de
+En effet là était le plus gros problème de mon point de vue car je me suis souvent retrouvé à coder pas mal de fonctionnalités qui finalement n'ont pas été utilisées, mises de
 côtés ou alors gérées côté serveur. Ces quelques petites erreurs sont aussi dues en partie au fait qu'il s'agit de la première fois que je développe un jeux avec une aussi 
-grosse séparation client / serveur contrairement au jeu développer durant l'UE "Moteur de Jeux 3D".
+grosse séparation client / serveur contrairement au jeu développé durant l'UE "Moteur de Jeux 3D".
 
 Ma partie a été centrée sur plusieurs points :  
 - les fonctions de créations des différentes entitées à des positions précises.
-- les pages de connexion aves l'appel à l'api
+- les pages de connexion avec l'appel à l'api
 - la gestion de déplacement de toutes les entités sur la carte
 - les sons 
 
