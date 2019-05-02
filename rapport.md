@@ -293,18 +293,25 @@ Les objectif de ce module, et d'intéger un système d'authentification et le je
 
 ### GRPC
 
+Louis C its for u
+
 ### Deplacement (move to)
+
+Arthur
 
 ### UI
 
+Marie
+
 ### Authentification
+
+Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie normaliser qui a fait ses preuves.
 
 #### JWT
 
 ![JWT](images/jwt.png)
 
-Pour ne pas réinventer la roue, nous avons décidé d'utiliser une technologie normaliser qui a fait
-ses preuves
+
 L'authentification se fait grâce à l'API d'authentification, si la connexion réussi, un jwt contenant les informations sur l'utilisateur est renvoyé puis stocké dans une variable globale.
 
 ## docker
