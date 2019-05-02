@@ -439,6 +439,13 @@ pour avoir la satisfaction de terminer correctement ce qui à été commencé.
 
 ## Monfouga Marie
 
+Personnellement, faisant partie de l'équipe Front, ce projet m'a permis de m'améliorer dans l'utilisation d'unity et de découvrir de nouvelles fonctionnalités de ce logiciel.
+Préférant me concentrer sur l'approfondissement de mes connaissances sur Unity plutôt que sur la découverte d"un nouveau logiciel, Godot, j'ai voté pour l'utilisation de celui ci.
+Pendant le dévelopement je me suis principalement concentrée sur la disposition des éléments de l'UI, leur interaction avec le joueur et sur des fonctionnalités du jeu comme la caméra, le placement de bâtiment ou le brouillard entre autres.
+La partie la plus difficile au commencement était la mise en commun de nos modifications respectives sur Unity.
+Chaque changement sur la scène modifiant le fichier de la scène automatiquement il était parfois compliqué de résoudre les conflits.
+Lors d'un ajout de fonctionnalité il fallait également faire attention à ne pas empiéter sur le travail des autres.
+
 # Conclusion
 
 Ce projet nous a permis d'appliquer la théorie enseignée ainsi que d'apprendre divers facette du developement.
