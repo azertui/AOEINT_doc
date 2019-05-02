@@ -314,14 +314,18 @@ Pour cela, on crée une matrice de poids en associant chaque case à un poids co
 
 Il existe deux méthodes de récolte, la récolte de ressource par ciblage et celle se réalisant automatiquement, la deuxième n'étant pas sur d'être implémentée.
 Les deux unité pouvant récolter des ressources sont les villageois et les harvesters
+
 -Le joueur sélectionne une ou plusieurs unités pouvant récolter des ressources puis clique sur une ressource. Le unité va se déplacer vers la case la plus proche et n'étant pas obstruée lui permettant d'être à portée de récolte. S'il n'existe pas de chemin possible pour accéder à la ressource ou que toutes les cases permettant d'être à portée de la ressource sont obstrués, le clic sur la ressource ne fera pas déplacer le unité. Lorsqu'il se trouve à portée de la ressource il va commencer à récolter la ressource jusqu'à épuisement de la ressource, déplacement du unité ou mort du unité. Contrairement à  AOE II, les unités ne ramènent par leurs ressources vers un bâtiment.
+
 -Toutes les 10 millisecondes, chaque unité inactif ira récolter une ressource si elle se trouve dans un rayon de quelques cases autour de l'unité et qu'il existe un accès pour la récolter. A noter qu'afin d'économiser des ressources, une fois cette détection faite, elle ne sera pas refaite tant que l'unité ne s'est pas déplacé vers un autre endroit.
 
 ### Attaque
 
 Il existe deux méthodes d'attaque, l'attaque par ciblage et celle se réalisant automatiquement, la première n'étant pas sur d'être implémentée.
 Toutes les unités sont capables d'attaquer.
+
 -Le joueur sélectionne une ou plusieurs unités puis clique sur une unité ennemie ou un bâtiment ennemi. Si le chemin n'est pas obstrué, l'unité va se déplacer vers la case la plus proche permettant d'être à portée d'attaque de la cible puis l'attaque automatique se déclenchera une fois arrivé à la case. Pour l'attaque d'unité, une fonctionnalité qui n'est pas sur d'être implémenter en raison de problèmes de concurrences est que l'unité ou le groupe d'unités pourchasse et suive la cible jusqu'à ce qu'elle soit morte ou hors de vue.
+
 -Toutes les 10 millisecondes pour chaque unité inactive, une détection sera lancée afin de savoir s'il y a une unité ennemie ou un bâtiment ennemi à portée. Si c'est le cas elle commence à attaquer l'unité ou le bâtiment ennemi.
 
 
