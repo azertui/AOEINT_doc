@@ -88,8 +88,7 @@ Nous avons du faire des compromis pour que tous le monde puisse progresser dans 
 
 Pour l'instance de jeu, nous avons hésité entre JAVA, Python et GO.
 JAVA étant lourd et en voie d'extinction, ilPyhton et GO était les deux choix restants.
-Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages:
-
+Après discussion GO nous a paru plus adapté, dans le sens où il ressemble fortement au C et possède les avantages suivant:
 - d'être compilable
 - d'intégrer des outils de test
 - d'intégrer une gestion des dépendances
@@ -174,40 +173,56 @@ Cela permetra à terme de générer une partie à la demande et de la supprimer 
 
 ### Client
 
-Concernant le client, nous hésitions en GOdot et unity
+#### Moteur de jeu
 
-#### Unity
+Concernant le client, nous hésitions en Godot et unity.
+Nous avons fait des tests durant 1 semaine pour pouvoir choisir le plus adapter.
+
+##### Unity
 
 Unity est un moteur de jeux propriétaire possédant un nombre conséquent d'assets et de fonctionnalités puissantes permetant de construire un jeux avec des outils performants.
 L'avantage de Unity comparé à Godot, est que nous avon appris à le manipuler lors de l'UE "Moteur de Jeux 3D" ce qui a été décisif sur notre choix en plus du grand nombre d'utilisateurs.
 A la vue de l'ampleur de notre projet, nous ne pouvions pas nous permettre de perdre un temps considérable sur la prise en main de Godot.
 
-#### Godot
+##### Godot
 
 Godot est un moteur de jeux open source, il est léger et facilement intégrable avec git.
 Cependant Godot souffre d'un manque cruel de communauté comparé à Unity et la documentation présentait des lacunes.
 Pour départagé un vote à été réalisé et notre choix s'est dirigé vers unity.
 
+##### Choix final
+
+Les personnes ayant testés Godot ont exprimés leurs réticences, elles étaient notament leurs expérience sur unity, la puissance d'unity et de sa grande librairie d'assets et le manque de motivation pour apprendre Godot.
+
 # Organisation
 
-Pour créer le jeux dans les meilleures conditions, il a fallu diviser le projet en plusieurs modules
+Pour créer le jeux dans les meilleures conditions, il a fallu diviser le projet en plusieurs modules.
+Pour rendre ce projet réalisable, nous avons décidé de rendre obligatoire l'utlisation du multijoueur.
+Cette contrainte compliqua le dévelopement car il a fallu synchroniser le dévelopement du client et du serveur.
+Cela dit, nous avons pu nous tourner vers un modèle de dévelopement itératif en intégrant au fur et à mesure les nouvelles features.
 
 ## Formations des équipes
 
 La formation des équipes est venue naturellement en fonction des différents CMI **Image / Réseau**.
+Nous avons essayé de rendre les équipes cohérentes, par exemple pour le noyaux, nous avons choisi d'y placer les membres les plus à l'aise avec la programmation système.
 
 ### Front
 
-L'équipe front qui est composé des CMI Image est chargé de déveloper le client car ces derniers ont appris à utiliser Unity et son plus à l'aise en UI / Animations ...
+L'équipe front qui est composé des CMI Image est chargé de déveloper le client car ces derniers ont appris à utiliser Unity et son plus à l'aise dans la création de l'UI / Animations ...
 Elle est composée d'Adrien, Chloé et Marie.
 
 ### Noyaux
 
-L'équipe noyaux est chargé de développer le noyaux. E
+L'équipe noyaux est chargé de développer le noyaux.
+Jusqu'a l'alpha, elle était composer de Arthur, Louis C et de Dorian.
+Durant la beta, le noyaux ayant ateint ses objectifs, il est devenu plus judicieux de renforcer l'équipe réseaux en y transférant Louis C car il est à l'aise en C#.
 
 ### Réseaux
 
-L'équipe réseaux est chargé de faire le lien entre le client et l'instance de la partie. Le framework utilisé pour établir cette communication est "GRPC" pour C# (unity)et GO.
+L'équipe réseaux est chargé de faire le lien entre le client et l'instance de la partie.
+Elle est également en charge du dévelopement des API.
+Louis T la composait à l'alpha avec le support de Tim, puis Louis Cesar le rejoigna pour booster le developement du client.
+Le framework utilisé pour établir cette communication est "GRPC" entre l'instance de jeu et le client.
 
 
 
@@ -215,6 +230,7 @@ L'équipe réseaux est chargé de faire le lien entre le client et l'instance de
 
 La répartition des taches se fait grâce à gitlab, les issues sont créés et attribué ou choisi par les personnes disponibles.
 Ce système permet de d'attribuer des taches correspondantes aux personnes augmentant ainsi la productivité.
+les bugs bloquant le developement des features en cours de dévelopement sont misent en priorité.
 
 ### Gitlab
 
