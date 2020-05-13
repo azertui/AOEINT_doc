@@ -49,3 +49,6 @@ des parties ainsi que le deploiement.
 
 Cette équipe est composée de `Louis T` `Louis C`et `Tim`.
 
+## Rapport de projet
+
+![Rapport](rapport.md)
